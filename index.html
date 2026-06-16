@@ -263,39 +263,6 @@
     .section {
       position: relative;
     }
-    .section::after {
-      content: '';
-      position: absolute;
-      bottom: -30px;
-      left: 0; right: 0;
-      height: 60px;
-      z-index: 10;
-      pointer-events: none;
-    }
-    .section-dark::after {
-      background: radial-gradient(ellipse 80% 100% at 50% 100%,
-        rgba(15,35,24,0.85) 0%,
-        rgba(15,35,24,0.4) 40%,
-        transparent 70%);
-    }
-    .section-light::after {
-      background: radial-gradient(ellipse 80% 100% at 50% 100%,
-        rgba(253,248,240,0.85) 0%,
-        rgba(253,248,240,0.4) 40%,
-        transparent 70%);
-    }
-    .section-white::after {
-      background: radial-gradient(ellipse 80% 100% at 50% 100%,
-        rgba(255,255,255,0.85) 0%,
-        rgba(255,255,255,0.4) 40%,
-        transparent 70%);
-    }
-    .hero::after {
-      background: radial-gradient(ellipse 80% 100% at 50% 100%,
-        rgba(15,35,24,0.9) 0%,
-        rgba(15,35,24,0.45) 40%,
-        transparent 70%);
-    }
 
     /* ─── SECTION BASE ─── */
     .section { padding: 64px 24px; }
@@ -1597,81 +1564,91 @@ document.querySelectorAll('.faq-question').forEach(btn => {
   showTimer = setTimeout(showNext, 6000 + Math.random() * 6000);
 })();
 
-// ─── SCROLL JOURNEY LINE (mobile only) ───
+// ─── SCROLL JOURNEY LINE ───
 (function() {
-  // Só roda no mobile
-  if (window.innerWidth > 768) return;
+  const isMobile = () => window.innerWidth <= 768;
 
-  // Cria o SVG fixo na lateral esquerda
-  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  svg.id = 'journey-line';
-  svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+  const NS = 'http://www.w3.org/2000/svg';
+  const H  = window.innerHeight;
+
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('width',   '18');
+  svg.setAttribute('height',  String(H));
+  svg.setAttribute('viewBox', '0 0 18 ' + H);
   Object.assign(svg.style, {
-    position:   'fixed',
-    left:       '6px',
-    top:        '0',
-    width:      '18px',
-    height:     '100vh',
-    zIndex:     '998',
+    position:      'fixed',
+    left:          '4px',
+    top:           '0',
+    width:         '18px',
+    height:        '100vh',
+    zIndex:        '998',
     pointerEvents: 'none',
-    overflow:   'visible',
+    display:       isMobile() ? 'block' : 'none',
   });
 
-  // Trilha de fundo (fantasma)
-  const ghost = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  // Gradiente
+  const defs  = document.createElementNS(NS, 'defs');
+  const grad  = document.createElementNS(NS, 'linearGradient');
+  grad.setAttribute('id', 'jGrad');
+  grad.setAttribute('x1', '0'); grad.setAttribute('y1', '0');
+  grad.setAttribute('x2', '0'); grad.setAttribute('y2', '1');
+  const s1 = document.createElementNS(NS, 'stop');
+  s1.setAttribute('offset', '0%');   s1.setAttribute('stop-color', '#E8B84B');
+  const s2 = document.createElementNS(NS, 'stop');
+  s2.setAttribute('offset', '100%'); s2.setAttribute('stop-color', '#C8962A');
+  grad.appendChild(s1); grad.appendChild(s2);
+  defs.appendChild(grad);
+  svg.appendChild(defs);
+
+  // Trilha fantasma
+  const ghost = document.createElementNS(NS, 'line');
   ghost.setAttribute('x1', '9'); ghost.setAttribute('y1', '0');
-  ghost.setAttribute('x2', '9'); ghost.setAttribute('y2', '100%');
-  ghost.setAttribute('stroke', 'rgba(200,150,42,0.12)');
+  ghost.setAttribute('x2', '9'); ghost.setAttribute('y2', String(H));
+  ghost.setAttribute('stroke', 'rgba(200,150,42,0.15)');
   ghost.setAttribute('stroke-width', '2');
-  ghost.setAttribute('stroke-dasharray', '4 6');
+  ghost.setAttribute('stroke-dasharray', '4 7');
+  svg.appendChild(ghost);
 
-  // Linha que cresce com o scroll
-  const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-  line.setAttribute('x1', '9'); line.setAttribute('y1', '0');
-  line.setAttribute('x2', '9'); line.setAttribute('y2', '0');
-  line.setAttribute('stroke', 'url(#journeyGrad)');
-  line.setAttribute('stroke-width', '2.5');
-  line.setAttribute('stroke-linecap', 'round');
+  // Linha de progresso via dashoffset
+  const TOTAL = H;
+  const track = document.createElementNS(NS, 'line');
+  track.setAttribute('x1', '9'); track.setAttribute('y1', '0');
+  track.setAttribute('x2', '9'); track.setAttribute('y2', String(TOTAL));
+  track.setAttribute('stroke', 'url(#jGrad)');
+  track.setAttribute('stroke-width', '2.5');
+  track.setAttribute('stroke-linecap', 'round');
+  track.setAttribute('stroke-dasharray', String(TOTAL));
+  track.setAttribute('stroke-dashoffset', String(TOTAL)); // começa invisível
+  svg.appendChild(track);
 
-  // Ponto-bola que acompanha o progresso
-  const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  // Bola marcadora
+  const dot = document.createElementNS(NS, 'circle');
   dot.setAttribute('cx', '9');
   dot.setAttribute('cy', '0');
-  dot.setAttribute('r', '4');
+  dot.setAttribute('r',  '4.5');
   dot.setAttribute('fill', '#C8962A');
   dot.setAttribute('stroke', '#fff');
   dot.setAttribute('stroke-width', '1.5');
-
-  // Gradiente dourado→verde
-  const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-  defs.innerHTML = `
-    <linearGradient id="journeyGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#E8B84B"/>
-      <stop offset="100%" stop-color="#C8962A"/>
-    </linearGradient>`;
-
-  svg.appendChild(defs);
-  svg.appendChild(ghost);
-  svg.appendChild(line);
   svg.appendChild(dot);
+
   document.body.appendChild(svg);
 
   function update() {
-    const scrollTop  = window.scrollY || document.documentElement.scrollTop;
-    const docHeight  = document.documentElement.scrollHeight - window.innerHeight;
-    const pct        = Math.min(Math.max(scrollTop / docHeight, 0), 1);
-    const vh         = window.innerHeight;
-    const y          = pct * vh;
+    const scrolled   = window.scrollY || document.documentElement.scrollTop;
+    const maxScroll  = document.documentElement.scrollHeight - window.innerHeight;
+    const pct        = maxScroll > 0 ? Math.min(scrolled / maxScroll, 1) : 0;
+    const drawn      = pct * TOTAL;
 
-    line.setAttribute('y2', y);
-    dot.setAttribute('cy', y);
+    track.setAttribute('stroke-dashoffset', String(TOTAL - drawn));
+    dot.setAttribute('cy', String(drawn));
   }
 
   window.addEventListener('scroll', update, { passive: true });
+
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) svg.style.display = 'none';
-    else svg.style.display = '';
+    svg.style.display = isMobile() ? 'block' : 'none';
   });
+
   update();
 })();
 </script>
