@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lo Que Tu Abuela Sabía Curar +200 Remedios Naturales</title>
+  <meta name="description" content="+200 remedios naturales ancestrales para presión, azúcar, insomnio y dolor crónico. Lo que tu abuela sabía y los médicos olvidaron.">
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '314465464249154');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=314465464249154&ev=PageView&noscript=1"/></noscript>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde:     #0F2318;
+      --verde-mid: #1A3828;
+      --dourado:   #C8962A;
+      --dourado-claro: #E8B84B;
+      --creme:     #FDF8F0;
+      --branco:    #FFFFFF;
+      --vermelho:  #C0392B;
+      --texto:     #2C2C2C;
+      --texto-suave: #5A5A5A;
+      --borda:     #E8E0D0;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--texto); background: var(--branco); }
+
+    .serif { font-family: 'Playfair Display', serif; }
+
+    /* ─── URGENCY BAR ─── */
+    .urgency-bar {
+      background: var(--vermelho);
+      color: #fff;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    .urgency-bar span { color: #FFE066; font-weight: 800; }
+
+    /* ─── SOCIAL PROOF POPUP ─── */
+    .sp-popup {
+      position: fixed;
+      bottom: 24px;
+      left: 16px;
+      z-index: 9999;
+      max-width: 300px;
+      width: calc(100vw - 32px);
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-left: 4px solid #2A8C4A;
+      transform: translateX(calc(-100% - 20px));
+      opacity: 0;
+      transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1), opacity 0.35s ease;
+      pointer-events: none;
+    }
+    .sp-popup.show {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .sp-content { flex: 1; min-width: 0; }
+    .sp-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1a1a1a;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sp-action {
+      font-size: 11px;
+      color: #555;
+      line-height: 1.4;
+      margin-top: 1px;
+    }
+    .sp-action strong { color: #2A8C4A; }
+    .sp-time {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 3px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .sp-time::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #2A8C4A;
+      flex-shrink: 0;
+    }
+    .sp-close {
+      position: absolute;
+      top: 6px; right: 8px;
+      background: none; border: none;
+      color: #bbb; font-size: 16px;
+      cursor: pointer; line-height: 1;
+      padding: 0;
+    }
+    .sp-close:hover { color: #888; }
+    @media (max-width: 400px) {
+      .sp-popup { max-width: calc(100vw - 32px); }
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--verde);
+      position: relative;
+      overflow: hidden;
+      padding: 56px 24px 64px;
+      text-align: center;
+    }
+    .hero-canvas {
+      position: absolute; inset: 0;
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(200,150,42,0.18);
+      border: 1px solid rgba(200,150,42,0.4);
+      color: var(--dourado-claro);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      color: var(--branco);
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      line-height: 1.12;
+      margin-bottom: 16px;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 em {
+      color: var(--dourado-claro);
+      font-style: normal;
+    }
+
+    /* ─── BTN PRIMARY ─── */
+    .btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--dourado), #E8A820);
+      color: var(--verde);
+      font-weight: 800;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      padding: 18px 36px;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(200,150,42,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: -0.01em;
+      animation: pulse-cta 2.5s ease-in-out infinite;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(200,150,42,0.6);
+    }
+    @keyframes pulse-cta {
+      0%, 100% { box-shadow: 0 8px 32px rgba(200,150,42,0.45); }
+      50%       { box-shadow: 0 8px 48px rgba(200,150,42,0.7); }
+    }
+    .hero-trust {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .hero-trust-item {
+      color: rgba(255,255,255,0.55);
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .hero-trust-item::before {
+      content: '✓';
+      color: var(--dourado-claro);
+      font-weight: 700;
+    }
+
+    /* ─── SECTION BASE ─── */
+    .section { padding: 64px 24px; }
+    .section-dark { background: var(--verde); }
+    .section-light { background: var(--creme); }
+    .section-white { background: var(--branco); }
+
+    .container { max-width: 900px; margin: 0 auto; }
+
+    .section-eyebrow {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      line-height: 1.2;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .section-title.light { color: var(--branco); }
+    .section-title.dark  { color: var(--verde); }
+    .section-subtitle {
+      text-align: center;
+      font-size: 15px;
+      color: var(--texto-suave);
+      max-width: 560px;
+      margin: 0 auto 44px;
+      line-height: 1.6;
+    }
+    .section-subtitle.light { color: rgba(255,255,255,0.65); }
+
+    /* ─── CONDITIONS LIST ─── */
+    .conditions-intro {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .conditions-grid {
+      columns: 2;
+      column-gap: 24px;
+    }
+    @media (min-width: 600px) { .conditions-grid { columns: 3; } }
+    @media (min-width: 900px) { .conditions-grid { columns: 4; } }
+
+    .condition-item {
+      padding: 4px 0;
+      font-size: 13px;
+      line-height: 1.5;
+      break-inside: avoid;
+      color: var(--texto-suave);
+    }
+    .condition-item.highlight {
+      font-weight: 700;
+      color: var(--verde);
+    }
+    .condition-item.highlight::before {
+      content: '★ ';
+      color: var(--dourado);
+    }
+    .conditions-footer {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 15px;
+      color: var(--texto-suave);
+    }
+    .conditions-footer strong { color: var(--dourado); font-size: 18px; }
+
+    /* ─── RECIPE SAMPLES ─── */
+    .recipe-card {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      background: var(--branco);
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .recipe-card.visible { opacity: 1; transform: none; }
+    @media (min-width: 640px) {
+      .recipe-card { flex-direction: row; }
+      .recipe-card:nth-child(even) { flex-direction: row-reverse; }
+    }
+    .recipe-img {
+      width: 100%;
+      max-width: 180px;
+      height: 180px;
+      border-radius: 14px;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #E8E0D0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--texto-suave);
+      font-size: 12px;
+      overflow: hidden;
+    }
+    .recipe-img img { width: 100%; height: 100%; object-fit: cover; }
+    .recipe-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--verde);
+      margin-bottom: 8px;
+    }
+    .recipe-pain {
+      font-size: 13px;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--vermelho);
+      margin-bottom: 10px;
+    }
+    .recipe-body p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--texto-suave);
+    }
+
+
+    /* ─── BENEFITS ─── */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    @media (min-width: 700px) { .benefits-grid { gap: 16px; } }
+
+    .benefit-card {
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(200,150,42,0.18);
+      border-radius: 14px;
+      padding: 16px 12px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--dourado), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .benefit-card:hover::before { opacity: 1; }
+    .benefit-card.visible { opacity: 1; transform: none; }
+
+    .benefit-visual {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 10px;
+      border-radius: 14px;
+      background: rgba(200,150,42,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    @media (min-width: 700px) {
+      .benefit-visual { width: 64px; height: 64px; border-radius: 16px; }
+    }
+    .benefit-visual svg { display: block; }
+
+    .benefit-card h3 {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--branco);
+      margin-bottom: 6px;
+      line-height: 1.3;
+      letter-spacing: 0.01em;
+    }
+    @media (min-width: 700px) { .benefit-card h3 { font-size: 13px; } }
+    .benefit-card p {
+      font-size: 10px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+      display: none;
+    }
+    @media (min-width: 700px) { .benefit-card p { display: block; font-size: 12px; } }
+
+
+    /* ─── HOW IT WORKS ─── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 640px) { .steps-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .step-card {
+      text-align: center;
+      padding: 28px 20px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(200,150,42,0.2);
+      border-radius: 16px;
+    }
+    .step-number {
+      width: 48px; height: 48px;
+      background: var(--dourado);
+      color: var(--verde);
+      font-weight: 800;
+      font-size: 20px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+    }
+    .step-card h3 { color: var(--branco); font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .step-card p { color: rgba(255,255,255,0.65); font-size: 13px; line-height: 1.55; }
+
+    /* ─── BONUSES ─── */
+    .bonus-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 48px;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .bonus-item.visible { opacity: 1; transform: none; }
+    @media (min-width: 640px) {
+      .bonus-item { flex-direction: row; }
+      .bonus-item:nth-child(even) { flex-direction: row-reverse; }
+    }
+    .bonus-img-wrap {
+      width: 180px;
+      height: 220px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.3);
+      font-size: 12px;
+      overflow: hidden;
+    }
+    .bonus-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .bonus-tag {
+      display: inline-block;
+      background: var(--dourado);
+      color: var(--verde);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .bonus-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--branco);
+      margin-bottom: 10px;
+    }
+    .bonus-body p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+    .bonus-value {
+      margin-top: 12px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+    }
+    .bonus-value s { color: rgba(255,255,255,0.35); }
+    .bonus-value strong { color: var(--dourado-claro); font-size: 15px; margin-left: 6px; }
+
+    /* ─── OFFER ─── */
+    .offer-box {
+      background: var(--branco);
+      border-radius: 24px;
+      border: 2px solid var(--dourado);
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 36px 28px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 16px 60px rgba(0,0,0,0.2);
+    }
+    .offer-badge {
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--dourado), #E8A820);
+      color: var(--verde);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 20px;
+      border-radius: 100px;
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+    }
+    .offer-product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--verde);
+      margin-bottom: 4px;
+    }
+    .offer-subtitle { font-size: 13px; color: var(--texto-suave); margin-bottom: 20px; }
+    .offer-price-old {
+      font-size: 16px;
+      color: #999;
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+    .offer-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      color: var(--verde);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .offer-price sup { font-size: 1.6rem; vertical-align: super; }
+    .offer-price sub { font-size: 1.4rem; }
+    .offer-currency { font-size: 14px; color: var(--texto-suave); margin-bottom: 24px; }
+    .offer-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 24px;
+    }
+    .offer-list li {
+      font-size: 14px;
+      color: var(--texto);
+      padding: 7px 0;
+      border-bottom: 1px solid var(--borda);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .offer-list li:last-child { border-bottom: none; }
+    .offer-list li::before {
+      content: '✓';
+      color: #2A8C4A;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .offer-cta {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, var(--dourado), #E8A820);
+      color: var(--verde);
+      font-weight: 800;
+      font-size: 1.05rem;
+      padding: 18px 24px;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 8px 28px rgba(200,150,42,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: -0.01em;
+      animation: pulse-cta 2.5s ease-in-out infinite;
+    }
+    .offer-cta:hover { transform: translateY(-2px); }
+    .offer-trust {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--texto-suave);
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .offer-trust span::before { content: '🔒 '; }
+    .payment-methods {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .payment-pill {
+      font-size: 11px;
+      font-weight: 600;
+      border: 1px solid var(--borda);
+      border-radius: 100px;
+      padding: 4px 12px;
+      color: var(--texto-suave);
+      background: var(--creme);
+    }
+    .flags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 20px;
+    }
+
+    /* ─── TIMER ─── */
+    .timer-wrap {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .timer-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--vermelho);
+      margin-bottom: 8px;
+    }
+    .timer-display {
+      display: inline-flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .timer-unit {
+      text-align: center;
+    }
+    .timer-digit {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--verde);
+      background: var(--creme);
+      border: 2px solid var(--borda);
+      border-radius: 10px;
+      padding: 6px 14px;
+      min-width: 64px;
+      display: block;
+      line-height: 1;
+    }
+    .timer-unit-label { font-size: 10px; color: var(--texto-suave); margin-top: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .timer-sep { font-size: 2rem; color: var(--verde); font-weight: 900; margin-top: -8px; }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 640px) { .testimonials-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(200,150,42,0.2);
+      border-radius: 18px;
+      padding: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .testimonial-card.visible { opacity: 1; transform: none; }
+    .testimonial-stars { color: var(--dourado-claro); font-size: 16px; margin-bottom: 12px; letter-spacing: 2px; }
+    .testimonial-text { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.65; margin-bottom: 16px; font-style: italic; }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonial-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .testimonial-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .testimonial-name { font-size: 13px; font-weight: 700; color: var(--branco); }
+    .testimonial-location { font-size: 11px; color: rgba(255,255,255,0.45); }
+
+    /* ─── GUARANTEE ─── */
+    .guarantee-box {
+      max-width: 560px;
+      margin: 0 auto;
+      border: 2px solid var(--dourado);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      background: var(--branco);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .guarantee-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--verde);
+      margin-bottom: 12px;
+    }
+    .guarantee-box p { font-size: 14px; color: var(--texto-suave); line-height: 1.65; }
+
+    /* ─── FAQ ─── */
+    .faq-item {
+      border-bottom: 1px solid rgba(200,150,42,0.2);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 18px 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--branco);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Inter', sans-serif;
+    }
+    .faq-question:focus { outline: 2px solid var(--dourado); outline-offset: 2px; }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: rgba(200,150,42,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--dourado-claro);
+      font-size: 16px;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.65;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 18px; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: #060F09;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    .footer a { color: rgba(255,255,255,0.4); }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── CANVAS PARTICLES ─── */
+    canvas.particles { position: absolute; inset: 0; pointer-events: none; }
+  </style>
+</head>
+<body>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar">
+  <span id="viewer-count">247</span> personas están viendo esta página ahora mismo &nbsp;·&nbsp; Oferta por tiempo limitado
+</div>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <canvas class="hero-canvas" id="canvas-hero"></canvas>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="hero-badge">🌿 El saber de tus tatarabuelos redescubierto</div>
+
+    <h1>
+      El secreto ancestral que<br>
+      <em>previene, cura y da alivio</em>
+    </h1>
+
+    <img
+      src="https://res.cloudinary.com/def9lnal7/image/upload/v1781580081/ChatGPT_Image_16_de_jun._de_2026_00_20_53_scopoh.webp"
+      alt="Presión, azúcar, insomnio, artritis y más — remedios naturales ancestrales"
+      width="900" height="320"
+      fetchpriority="high"
+      decoding="async"
+      style="display:block;width:100%;max-width:720px;height:auto;margin:0 auto 28px;border-radius:16px;"
+    >
+
+    <div class="hero-trust">
+      <span class="hero-trust-item">Acceso inmediato</span>
+      <span class="hero-trust-item">100% Natural</span>
+      <span class="hero-trust-item">Garantía 7 días</span>
+      <span class="hero-trust-item">Solo $9 USD</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CONDITIONS ═══════════════════ -->
+<section class="section section-light">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">Tu botiquín natural completo</div>
+      <h2 class="section-title dark">Después de los 50, el cuerpo tiene muchas preguntas.<br>Este libro tiene las respuestas.</h2>
+      <p class="section-subtitle">+200 remedios organizados por condición. Busca lo que te aqueja hoy y encuentra tu solución natural para prevenir y también para aliviar.</p>
+    </div>
+
+    <div class="conditions-grid reveal">
+      <div class="condition-item highlight">Presión Arterial Alta</div>
+      <div class="condition-item highlight">Azúcar en Sangre</div>
+      <div class="condition-item highlight">Insomnio</div>
+      <div class="condition-item highlight">Dolor de Espalda</div>
+      <div class="condition-item highlight">Artritis</div>
+      <div class="condition-item highlight">Colesterol Alto</div>
+      <div class="condition-item highlight">Dolor de Cabeza / Migraña</div>
+      <div class="condition-item highlight">Gastritis</div>
+      <div class="condition-item highlight">Hipertensión</div>
+      <div class="condition-item highlight">Diabetes</div>
+      <div class="condition-item">Acidez Estomacal</div>
+      <div class="condition-item">Acné</div>
+      <div class="condition-item">Alergias</div>
+      <div class="condition-item">Ansiedad</div>
+      <div class="condition-item">Asma</div>
+      <div class="condition-item">Bronquitis</div>
+      <div class="condition-item">Caída del Cabello</div>
+      <div class="condition-item">Calambres Musculares</div>
+      <div class="condition-item">Candidiasis</div>
+      <div class="condition-item">Caspa</div>
+      <div class="condition-item">Cicatrización Lenta</div>
+      <div class="condition-item">Congestión Nasal</div>
+      <div class="condition-item">Depresión</div>
+      <div class="condition-item">Dermatitis</div>
+      <div class="condition-item">Diarrea</div>
+      <div class="condition-item">Dolor Articular</div>
+      <div class="condition-item">Dolor Cervical</div>
+      <div class="condition-item">Dolor de Garganta</div>
+      <div class="condition-item">Dolor de Rodillas</div>
+      <div class="condition-item">Dolor Lumbar</div>
+      <div class="condition-item">Dolores Menstruales</div>
+      <div class="condition-item">Estreñimiento</div>
+      <div class="condition-item">Falta de Energía</div>
+      <div class="condition-item">Fatiga Crónica</div>
+      <div class="condition-item">Fiebre</div>
+      <div class="condition-item">Gripe y Resfriado</div>
+      <div class="condition-item">Hígado Graso</div>
+      <div class="condition-item">Infección Urinaria</div>
+      <div class="condition-item">Inflamación Crónica</div>
+      <div class="condition-item">Menopausia</div>
+      <div class="condition-item">Neuropatía</div>
+      <div class="condition-item">Obesidad</div>
+      <div class="condition-item">Osteoporosis</div>
+      <div class="condition-item">Parásitos Intestinales</div>
+      <div class="condition-item">Problemas Circulatorios</div>
+      <div class="condition-item">Problemas de Memoria</div>
+      <div class="condition-item">Psoriasis</div>
+      <div class="condition-item">Retención de Líquidos</div>
+      <div class="condition-item">Sinusitis</div>
+      <div class="condition-item">Tos</div>
+      <div class="condition-item">Triglicéridos Altos</div>
+      <div class="condition-item highlight">Várices</div>
+      <div class="condition-item highlight">Obesidad</div>
+    </div>
+
+    <p class="conditions-footer reveal">
+      Esto es solo una muestra. El compendio completo incluye <strong>200</strong> recetas —
+      para prevenir antes de que aparezca el problema y para aliviar cuando ya está presente.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════ BENEFITS ═══════════════════ -->
+<section class="section section-dark">
+  <canvas class="particles" id="canvas-benefits"></canvas>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="reveal">
+      <div class="section-eyebrow" style="color:var(--dourado);">Por qué este compendio</div>
+      <h2 class="section-title light">Simple, natural y desde tu cocina</h2>
+      <p class="section-subtitle light">Sin recetas costosas ni ingredientes exóticos.</p>
+    </div>
+
+    <div class="benefits-grid">
+
+      <!-- Card 1: +200 remedios -->
+      <div class="benefit-card reveal">
+        <div class="benefit-visual">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="6" width="16" height="20" rx="2" fill="rgba(200,150,42,0.25)" stroke="#C8962A" stroke-width="1.5"/>
+            <rect x="8" y="4" width="16" height="20" rx="2" fill="rgba(200,150,42,0.15)" stroke="#C8962A" stroke-width="1.5"/>
+            <rect x="12" y="2" width="16" height="20" rx="2" fill="rgba(200,150,42,0.1)" stroke="#E8B84B" stroke-width="1.5"/>
+            <line x1="15" y1="8" x2="25" y2="8" stroke="#E8B84B" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="15" y1="11" x2="25" y2="11" stroke="#E8B84B" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="15" y1="14" x2="22" y2="14" stroke="#E8B84B" stroke-width="1.2" stroke-linecap="round"/>
+            <text x="13" y="19" font-size="7" fill="#E8B84B" font-weight="bold" font-family="serif">+200</text>
+          </svg>
+        </div>
+        <h3>+200 remedios<br>en un libro</h3>
+        <p>Todo el saber ancestral organizado. Sin buscar en distintos sitios.</p>
+      </div>
+
+      <!-- Card 2: Prevención y alivio -->
+      <div class="benefit-card reveal">
+        <div class="benefit-visual">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 4 L28 10 L28 18 C28 24 22 28 16 30 C10 28 4 24 4 18 L4 10 Z" fill="rgba(200,150,42,0.15)" stroke="#C8962A" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M11 16 L14.5 19.5 L21 13" stroke="#E8B84B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="22" cy="10" r="4" fill="#1A3828" stroke="#E8B84B" stroke-width="1.2"/>
+            <line x1="22" y1="8" x2="22" y2="12" stroke="#E8B84B" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="20" y1="10" x2="24" y2="10" stroke="#E8B84B" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Prevención<br>y alivio</h3>
+        <p>Cada remedio indica cuándo prevenir y cuándo aliviar.</p>
+      </div>
+
+      <!-- Card 3: Ingredientes accesibles -->
+      <div class="benefit-card reveal">
+        <div class="benefit-visual">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 3 C16 3 10 8 10 14 C10 17.3 12.7 20 16 20 C19.3 20 22 17.3 22 14 C22 8 16 3 16 3Z" fill="rgba(42,140,74,0.2)" stroke="#4CAF6F" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M16 8 C16 8 13 11 13 14" stroke="#4CAF6F" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M10 20 L8 28" stroke="#C8962A" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M22 20 L24 28" stroke="#C8962A" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M8 28 L24 28" stroke="#C8962A" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="23" cy="8" r="3" fill="rgba(200,150,42,0.25)" stroke="#E8B84B" stroke-width="1.2"/>
+            <circle cx="9" cy="11" r="2.5" fill="rgba(200,150,42,0.2)" stroke="#E8B84B" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <h3>Ingredientes<br>de tu barrio</h3>
+        <p>Todo en el mercado local. Nada exótico, nada costoso.</p>
+      </div>
+
+      <!-- Card 4: Instrucciones paso a paso -->
+      <div class="benefit-card reveal">
+        <div class="benefit-visual">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="4" width="22" height="26" rx="3" fill="rgba(200,150,42,0.1)" stroke="#C8962A" stroke-width="1.5"/>
+            <circle cx="10" cy="11" r="1.5" fill="#E8B84B"/>
+            <line x1="14" y1="11" x2="23" y2="11" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" stroke-linecap="round"/>
+            <circle cx="10" cy="16" r="1.5" fill="#E8B84B"/>
+            <line x1="14" y1="16" x2="23" y2="16" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" stroke-linecap="round"/>
+            <circle cx="10" cy="21" r="1.5" fill="rgba(200,150,42,0.4)" stroke="#C8962A" stroke-width="1"/>
+            <line x1="14" y1="21" x2="20" y2="21" stroke="rgba(255,255,255,0.2)" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Paso a paso<br>y sin errores</h3>
+        <p>Cantidades exactas y frecuencia de uso en cada receta.</p>
+      </div>
+
+      <!-- Card 5: Acceso inmediato -->
+      <div class="benefit-card reveal">
+        <div class="benefit-visual">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="3" width="16" height="26" rx="3" fill="rgba(200,150,42,0.1)" stroke="#C8962A" stroke-width="1.5"/>
+            <rect x="11" y="7" width="10" height="14" rx="1" fill="rgba(200,150,42,0.08)" stroke="rgba(200,150,42,0.3)" stroke-width="1"/>
+            <circle cx="16" cy="25" r="1.5" fill="#E8B84B"/>
+            <path d="M13 12 L16 9 L19 12" stroke="#4CAF6F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="16" y1="9" x2="16" y2="17" stroke="#4CAF6F" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="13" y1="19" x2="19" y2="19" stroke="#E8B84B" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Acceso<br>inmediato</h3>
+        <p>Compras hoy, lees hoy. Celular, tablet o computadora.</p>
+      </div>
+
+      <!-- Card 6: Un pago, toda la vida -->
+      <div class="benefit-card reveal">
+        <div class="benefit-visual">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="12" fill="rgba(200,150,42,0.12)" stroke="#C8962A" stroke-width="1.5"/>
+            <path d="M16 8 C13.2 8 11 10.2 11 13 C11 16.5 16 22 16 22 C16 22 21 16.5 21 13 C21 10.2 18.8 8 16 8Z" fill="rgba(200,150,42,0.2)" stroke="#E8B84B" stroke-width="1.2"/>
+            <circle cx="16" cy="13" r="2" fill="#E8B84B"/>
+            <line x1="16" y1="22" x2="16" y2="25" stroke="#C8962A" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="12" y1="26" x2="20" y2="26" stroke="#C8962A" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>$9 una vez,<br>tuyo para siempre</h3>
+        <p>Sin suscripciones ni renovaciones. Pago único.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ RECIPE SAMPLES ═══════════════════ -->
+<section class="section section-white">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">Muestra gratuita</div>
+      <h2 class="section-title dark">4 de los +200 remedios que recibirás</h2>
+      <p class="section-subtitle">Distintos problemas, distintas soluciones. Así funciona el compendio: un remedio específico para cada cosa que te aqueja para prevenirla o para aliviarla.</p>
+    </div>
+
+    <!-- Recipe 1 -->
+    <div class="recipe-card reveal">
+      <div class="recipe-img">
+        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562208/Slide_3_Te%CC%81_para_la_Digestio%CC%81n_Pa%CC%81g._42_nryntv.webp" alt="Té para la Digestión" onerror="this.style.display='none'">
+      </div>
+      <div class="recipe-body">
+        <h3>Té Digestivo de la Abuela · Pág. 42</h3>
+        <p class="recipe-pain">¿Te sientes pesado o con ardor después de cada comida?</p>
+        <p>Esta mezcla de hierbas tomada 20 minutos después de comer calma la digestión pesada, reduce el ardor estomacal y elimina los gases. Preparación: 5 minutos. Costo: menos de $1 USD.</p>
+      </div>
+    </div>
+
+    <!-- Recipe 2 -->
+    <div class="recipe-card reveal">
+      <div class="recipe-img">
+        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562208/Slide_2_Bebida_para_el_Insomnio_Pa%CC%81g._34_kedwlr.webp" alt="Bebida para el Insomnio" onerror="this.style.display='none'">
+      </div>
+      <div class="recipe-body">
+        <h3>Bebida para el Insomnio · Pág. 34</h3>
+        <p class="recipe-pain">¿Das vueltas en la cama sin poder apagar la mente?</p>
+        <p>Esta bebida caliente tomada 30 minutos antes de dormir regula el sistema nervioso, reduce el cortisol nocturno y te ayuda a conciliar el sueño sin pastillas ni somnolencia al día siguiente.</p>
+      </div>
+    </div>
+
+    <!-- Recipe 3 -->
+    <div class="recipe-card reveal">
+      <div class="recipe-img">
+        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562208/Slide_4_Pan%CC%83o_Caliente_para_Mu%CC%81sculos_Pa%CC%81g._78_tqvgkq.webp" alt="Paño para Músculos" onerror="this.style.display='none'">
+      </div>
+      <div class="recipe-body">
+        <h3>Paño Herbal para Músculos y Espalda · Pág. 78</h3>
+        <p class="recipe-pain">¿El dolor de espalda o cuello no te deja hacer tu vida normal?</p>
+        <p>Aplicado en la zona afectada, este paño con hierbas antiinflamatorias penetra en el tejido muscular, alivia la tensión acumulada y reduce el dolor en menos de 40 minutos.</p>
+      </div>
+    </div>
+
+    <!-- Recipe 4 -->
+    <div class="recipe-card reveal">
+      <div class="recipe-img">
+        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562208/Slide_1_Jarabe_para_la_Tos_Pa%CC%81g._112_jlo5yp.webp" alt="Jarabe para la Tos" onerror="this.style.display='none'">
+      </div>
+      <div class="recipe-body">
+        <h3>Jarabe Natural para la Tos · Pág. 112</h3>
+        <p class="recipe-pain">¿La tos seca o con flema no te deja descansar de noche?</p>
+        <p>Este jarabe casero hecho con ingredientes de cocina calma la irritación de garganta, afloja la mucosidad y actúa desde la primera toma. Sin alcohol, sin colorantes, sin azúcar añadida.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:36px;" class="reveal">
+      <p style="font-size:15px; color:var(--texto-suave); margin-bottom:0;">
+        Estos son solo 4 ejemplos. El compendio completo tiene <strong style="color:var(--verde);">+200 remedios</strong> —
+        para prácticamente cualquier problema que enfrentes.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ HOW IT WORKS ═══════════════════ -->
+<section class="section section-dark">
+  <canvas class="particles" id="canvas-how"></canvas>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="reveal">
+      <div class="section-eyebrow" style="color:var(--dourado);">¿Cómo funciona?</div>
+      <h2 class="section-title light">Tres pasos, y ya es tuyo</h2>
+    </div>
+    <div class="steps-grid reveal">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>Pago 100% seguro</h3>
+        <p>Tarjeta, PayPal, OXXO, PIX, Mercado Pago. Cobro en tu moneda local.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>Recibe acceso al instante</h3>
+        <p>Te llega por email. Abre desde tu celular, tablet o computadora en minutos.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>Busca tu problema y actúa</h3>
+        <p>El compendio está organizado por condición. Encuentra tu remedio y prepáralo hoy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
+<section class="section section-dark">
+  <canvas class="particles" id="canvas-test"></canvas>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="reveal">
+      <div class="section-eyebrow" style="color:var(--dourado);">Lo que dicen nuestras lectoras</div>
+      <h2 class="section-title light">Resultados reales, palabras reales</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Llevo 3 años con la presión alta. El té de la página 18 me ayudó a bajarla en dos semanas sin cambiar mis medicamentos. Mi médico quedó sorprendido."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">
+            <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562207/Avatar_Maria_Elena.png_btr0w1.webp" alt="María Elena" onerror="this.parentElement.style.background='rgba(200,150,42,0.2)'">
+          </div>
+          <div>
+            <div class="testimonial-name">María Elena R.</div>
+            <div class="testimonial-location">Guadalajara, México</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"No dormía bien desde hacía años. Con la bebida para el insomnio de la página 34, en cuatro días ya estaba durmiendo de corrido. No lo puedo creer todavía."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">
+            <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562207/Avatar_Rosa_Hernandez.png_qv3tup.webp" alt="Rosa Hernández" onerror="this.parentElement.style.background='rgba(200,150,42,0.2)'">
+          </div>
+          <div>
+            <div class="testimonial-name">Rosa Hernández</div>
+            <div class="testimonial-location">Bogotá, Colombia</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Mi azúcar estaba en 180. Empecé con el tónico herbal y en un mes bajé a 130. Mi esposa también lo usa para la presión. Valió cada peso de lo que costó."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">
+            <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562207/Avatar_Carlos_Mendoza.png_g034xp.webp" alt="Carlos Mendoza" onerror="this.parentElement.style.background='rgba(200,150,42,0.2)'">
+          </div>
+          <div>
+            <div class="testimonial-name">Carlos Mendoza</div>
+            <div class="testimonial-location">Lima, Perú</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ BONUSES ═══════════════════ -->
+<section class="section section-dark">
+  <canvas class="particles" id="canvas-bonus"></canvas>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="reveal">
+      <div class="section-eyebrow" style="color:var(--dourado);">Solo por hoy</div>
+      <h2 class="section-title light">3 regalos exclusivos incluidos</h2>
+      <p class="section-subtitle light">Compras el compendio y recibes estos 3 guías sin costo adicional.</p>
+    </div>
+
+    <div class="bonus-item reveal">
+      <div class="bonus-img-wrap">
+        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562207/Bo%CC%82nus_1_Gui%CC%81a_del_Suen%CC%83o_Profundo_qctxxk.webp" alt="Guía del Sueño Profundo" onerror="this.style.display='none'">
+      </div>
+      <div class="bonus-body">
+        <span class="bonus-tag">Regalo #1</span>
+        <h3>Guía del Sueño Profundo</h3>
+        <p>Si el insomnio te agota, esta guía complementa los remedios con rutinas nocturnas, posiciones y hábitos que potencian el efecto de las hierbas. Duerme 7 horas seguidas o más, sin pastillas.</p>
+        <div class="bonus-value">Valor: <s>$19 USD</s> <strong>GRATIS</strong></div>
+      </div>
+    </div>
+
+    <div class="bonus-item reveal">
+      <div class="bonus-img-wrap">
+        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562208/Bo%CC%82nus_2_Plan_de_Alivio_para_Espalda_rcoooi.webp" alt="Plan de Alivio para Espalda" onerror="this.style.display='none'">
+      </div>
+      <div class="bonus-body">
+        <span class="bonus-tag">Regalo #2</span>
+        <h3>Plan de Alivio para Espalda y Músculos</h3>
+        <p>El dolor de espalda no se cura solo con remedios. Este plan combina los paños herbales del compendio con movimientos suaves y posturas correctivas para un alivio duradero.</p>
+        <div class="bonus-value">Valor: <s>$19 USD</s> <strong>GRATIS</strong></div>
+      </div>
+    </div>
+
+    <div class="bonus-item reveal">
+      <div class="bonus-img-wrap">
+        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562207/Bo%CC%82nus_3_Recetario_de_Cocina_Saludable_b7anr7.webp" alt="Recetario de Cocina Saludable" onerror="this.style.display='none'">
+      </div>
+      <div class="bonus-body">
+        <span class="bonus-tag">Regalo #3</span>
+        <h3>Recetario de Cocina Saludable</h3>
+        <p>Los remedios funcionan mejor cuando comes bien. Este recetario te muestra qué alimentos potencian las hierbas medicinales y cuáles las bloquean, con recetas fáciles y económicas.</p>
+        <div class="bonus-value">Valor: <s>$15 USD</s> <strong>GRATIS</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ OFFER ═══════════════════ -->
+<section class="section section-white" id="comprar">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:32px;">
+      <div class="section-eyebrow">⚠️ Esta oferta no se repetirá</div>
+      <h2 class="section-title dark">Tu botiquín natural completo por $9</h2>
+      <p style="text-align:center; color:var(--texto-suave); font-size:15px; max-width:500px; margin:0 auto;">
+        +200 remedios para prevenir y aliviar prácticamente cualquier condición que aparece después de los 50.
+      </p>
+    </div>
+
+    <!-- Timer -->
+    <div class="timer-wrap reveal">
+      <div class="timer-label">⏰ Oferta expira en:</div>
+      <div class="timer-display">
+        <div class="timer-unit">
+          <span class="timer-digit" id="timer-min">14</span>
+          <span class="timer-unit-label">Min</span>
+        </div>
+        <span class="timer-sep">:</span>
+        <div class="timer-unit">
+          <span class="timer-digit" id="timer-sec">59</span>
+          <span class="timer-unit-label">Seg</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="offer-box reveal">
+      <div class="offer-badge">🔥 MÁS VENDIDO · Acceso inmediato</div>
+      <p class="offer-product-name">El secreto de tus tatarabuelos que <em style="font-style:italic; color:var(--dourado);">previene, cura y da alivio</em></p>
+      <p class="offer-subtitle">+200 Remedios Naturales Ancestrales + 3 Regalos</p>
+      <img
+        src="https://res.cloudinary.com/def9lnal7/image/upload/v1781577851/mockup_pitch_mbetaf.webp"
+        alt="Lo Que Tu Abuela Sabía Curar — +200 Remedios Naturales"
+        width="480" height="320"
+        loading="lazy" decoding="async"
+        style="display:block;width:100%;max-width:380px;height:auto;margin:16px auto 20px;border-radius:10px;"
+      >
+      <div class="offer-price-old">$47 USD</div>
+      <div class="offer-price"><sup>$</sup>9<sub> USD</sub></div>
+      <p class="offer-currency">💳 Paga en tu moneda local</p>
+
+      <ul class="offer-list">
+        <li>+200 Remedios Naturales Ancestrales, organizados por condición</li>
+        <li>REGALO 1 · Guía del Sueño Profundo</li>
+        <li>REGALO 2 · Plan de Alivio para Espalda y Músculos</li>
+        <li>REGALO 3 · Recetario de Cocina Saludable</li>
+        <li>Acceso inmediato por email</li>
+        <li>Disponible en celular, tablet y computadora</li>
+        <li>Garantía de satisfacción 7 días</li>
+      </ul>
+
+      <a href="https://pay.hotmart.com/P106351091P" class="offer-cta" target="_blank" rel="noopener">
+        Quiero el secreto de los tatarabuelos + regalos →
+      </a>
+
+      <div class="offer-trust">
+        <span>Pago 100% seguro</span>
+        <span>Garantía 7 días</span>
+        <span>Acceso inmediato</span>
+      </div>
+
+      <div class="payment-methods">
+        <span class="payment-pill">Visa</span>
+        <span class="payment-pill">MasterCard</span>
+        <span class="payment-pill">PayPal</span>
+        <span class="payment-pill">OXXO</span>
+        <span class="payment-pill">PIX</span>
+        <span class="payment-pill">Mercado Pago</span>
+        <span class="payment-pill">SPEI</span>
+        <span class="payment-pill">Google Pay</span>
+      </div>
+
+      <div class="flags">
+        🇲🇽🇨🇴🇦🇷🇨🇱🇵🇪🇻🇪🇪🇨🇧🇴🇺🇾🇵🇾🇬🇹🇩🇴🇭🇳🇸🇻🇳🇮🇨🇷🇵🇦🇪🇸
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ GUARANTEE ═══════════════════ -->
+<section class="section section-light">
+  <div class="container">
+    <div class="guarantee-box reveal">
+      <img
+        src="https://res.cloudinary.com/def9lnal7/image/upload/v1781577850/garantia_jucikg.webp"
+        alt="Sello de Garantía 7 Días — 100% Satisfacción"
+        width="160" height="160"
+        loading="lazy" decoding="async"
+        style="display:block;width:120px;height:120px;object-fit:contain;margin:0 auto 20px;"
+      >
+      <h3>Garantía Total de 7 Días</h3>
+      <p>Si en los próximos 7 días no quedas 100% satisfecho con el contenido, te devolvemos tu dinero completo. Sin preguntas, sin formularios complicados, sin excusas. Tu inversión está protegida.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FAQ ═══════════════════ -->
+<section class="section section-dark">
+  <canvas class="particles" id="canvas-faq"></canvas>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="reveal">
+      <div class="section-eyebrow" style="color:var(--dourado);">Preguntas frecuentes</div>
+      <h2 class="section-title light" style="margin-bottom:36px;">Dudas que quizás tienes</h2>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question">
+        ¿Cómo recibo el compendio después de pagar?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Inmediatamente después del pago recibes un email con el enlace de descarga. No necesitas esperar ni instalar nada especial. Funciona en cualquier dispositivo.
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question">
+        ¿Los remedios reemplazan mis medicamentos actuales?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        No. Los remedios naturales son complementarios y no reemplazan el tratamiento médico. Siempre consulta a tu médico antes de hacer cambios en tu tratamiento. El compendio es un recurso adicional de bienestar, no un sustituto médico.
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question">
+        ¿Los ingredientes son fáciles de conseguir?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Sí. Los +200 remedios usan hierbas y alimentos disponibles en cualquier mercado, tianguis, plaza de barrio o supermercado en toda América Latina. Nada exótico ni costoso.
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question">
+        ¿En qué moneda se cobra?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        El precio es $9 USD pero Hotmart convierte automáticamente a tu moneda local al momento de pagar. Puedes pagar con tarjeta, OXXO, PIX, Mercado Pago, PayPal, SPEI y más métodos locales.
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-question">
+        ¿Hay alguna suscripción o cobro recurrente?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        No. Pagas $9 una sola vez y el compendio es tuyo de por vida. Sin mensualidades, sin renovaciones automáticas, sin sorpresas en tu tarjeta.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="footer">
+  <p>© 2026 Lo Que Tu Abuela Sabía Curar · Todos los derechos reservados</p>
+  <p style="margin-top:6px;">Este producto es de carácter informativo y no reemplaza el consejo médico profesional.</p>
+</footer>
+
+<script>
+// ─── PARTICLES ───
+function initParticles(canvasId) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const parent = canvas.parentElement;
+
+  function resize() {
+    canvas.width  = parent.offsetWidth;
+    canvas.height = parent.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const particles = Array.from({ length: 28 }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 2.2 + 0.5,
+    vx: (Math.random() - 0.5) * 0.3,
+    vy: (Math.random() - 0.5) * 0.3,
+    alpha: Math.random() * 0.5 + 0.15,
+  }));
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(200,150,42,${p.alpha})`;
+      ctx.fill();
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height;
+      if (p.y > canvas.height) p.y = 0;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+['canvas-hero','canvas-benefits','canvas-how','canvas-test','canvas-bonus','canvas-faq'].forEach(initParticles);
+
+// ─── SCROLL REVEAL ───
+const revealEls = document.querySelectorAll('.reveal, .recipe-card, .benefit-card, .testimonial-card, .bonus-item');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 60);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+// ─── TIMER ───
+(function() {
+  let total = 14 * 60 + 59;
+  const minEl = document.getElementById('timer-min');
+  const secEl = document.getElementById('timer-sec');
+  function tick() {
+    if (total <= 0) { total = 14 * 60 + 59; return; }
+    total--;
+    const m = Math.floor(total / 60);
+    const s = total % 60;
+    if (minEl) minEl.textContent = String(m).padStart(2, '0');
+    if (secEl) secEl.textContent = String(s).padStart(2, '0');
+  }
+  setInterval(tick, 1000);
+})();
+
+// ─── FAKE VIEWER COUNT ───
+(function() {
+  const el = document.getElementById('viewer-count');
+  if (!el) return;
+  let n = parseInt(el.textContent, 10);
+  setInterval(() => {
+    n += Math.random() > 0.5 ? 1 : -1;
+    n = Math.max(180, Math.min(350, n));
+    el.textContent = n;
+  }, 4500);
+})();
+
+// ─── FAQ ───
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// ─── SOCIAL PROOF POPUP ───
+(function() {
+  const buyers = [
+    { name: 'María González',    flag: '🇲🇽', city: 'Ciudad de México',  ago: 'hace 2 minutos',   emoji: '👩' },
+    { name: 'Carmen Rodríguez',  flag: '🇨🇴', city: 'Bogotá',            ago: 'hace 4 minutos',   emoji: '👵' },
+    { name: 'Lucía Hernández',   flag: '🇦🇷', city: 'Buenos Aires',      ago: 'hace 6 minutos',   emoji: '👩' },
+    { name: 'Rosa Martínez',     flag: '🇲🇽', city: 'Guadalajara',       ago: 'hace 8 minutos',   emoji: '👵' },
+    { name: 'Isabel Flores',     flag: '🇨🇱', city: 'Santiago',          ago: 'hace 11 minutos',  emoji: '👩' },
+    { name: 'Patricia López',    flag: '🇵🇪', city: 'Lima',              ago: 'hace 13 minutos',  emoji: '👵' },
+    { name: 'Ana Ramírez',       flag: '🇻🇪', city: 'Caracas',           ago: 'hace 15 minutos',  emoji: '👩' },
+    { name: 'Gloria Sánchez',    flag: '🇪🇨', city: 'Quito',             ago: 'hace 18 minutos',  emoji: '👵' },
+    { name: 'Esperanza Torres',  flag: '🇩🇴', city: 'Santo Domingo',     ago: 'hace 20 minutos',  emoji: '👩' },
+    { name: 'Consuelo Vargas',   flag: '🇨🇴', city: 'Medellín',          ago: 'hace 22 minutos',  emoji: '👵' },
+  ];
+
+  // Criar elemento do popup
+  const popup = document.createElement('div');
+  popup.className = 'sp-popup';
+  popup.innerHTML = `
+    <button class="sp-close" aria-label="Cerrar">×</button>
+    <div class="sp-content">
+      <div class="sp-name" id="sp-name"></div>
+      <div class="sp-action">acaba de adquirir <strong>el compendio</strong> 🌿</div>
+      <div class="sp-time" id="sp-time"></div>
+    </div>
+  `;
+  document.body.appendChild(popup);
+
+  const nameEl  = popup.querySelector('#sp-name');
+  const timeEl  = popup.querySelector('#sp-time');
+  const closeBtn = popup.querySelector('.sp-close');
+
+  let idx = Math.floor(Math.random() * buyers.length);
+  let hideTimer, showTimer;
+
+  function showNext() {
+    const b = buyers[idx];
+    idx = (idx + 1) % buyers.length;
+
+    nameEl.textContent  = b.flag + ' ' + b.name + ' · ' + b.city;
+    timeEl.textContent  = b.ago;
+
+    popup.classList.add('show');
+
+    // Esconde após 5s
+    hideTimer = setTimeout(() => {
+      popup.classList.remove('show');
+      // Próximo depois de intervalo aleatório 18-35s
+      const next = 18000 + Math.random() * 17000;
+      showTimer = setTimeout(showNext, next);
+    }, 5000);
+  }
+
+  closeBtn.addEventListener('click', () => {
+    clearTimeout(hideTimer);
+    clearTimeout(showTimer);
+    popup.classList.remove('show');
+    // Reaparece após 40s mesmo se fechado
+    showTimer = setTimeout(showNext, 40000);
+  });
+
+  // Primeira aparição entre 6-12s após carregar
+  showTimer = setTimeout(showNext, 6000 + Math.random() * 6000);
+})();
+</script>
+
+</body>
+</html>
