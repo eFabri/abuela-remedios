@@ -22,6 +22,24 @@
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=314465464249154&ev=PageView&noscript=1"/></noscript>
 
+  <!-- UTMify UTMs -->
+  <script
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-subids
+    async
+    defer
+  ></script>
+
+  <!-- UTMify Pixel -->
+  <script>
+    window.pixelId = "6a313fb30fbfc2509aa48b74";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -60,6 +78,12 @@
       top: 0;
       z-index: 999;
       box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    @media (max-width: 480px) {
+      .urgency-bar { font-size: 10.5px; padding: 9px 10px; letter-spacing: 0; }
     }
     .urgency-bar span { color: #FFE066; font-weight: 800; }
 
@@ -235,7 +259,7 @@
     }
     .hero-trust-cta::before { content: '' !important; }
 
-    /* ─── SMOKE TRANSITIONS BETWEEN SECTIONS ─── */
+
     .section {
       position: relative;
     }
@@ -1571,6 +1595,84 @@ document.querySelectorAll('.faq-question').forEach(btn => {
 
   // Primeira aparição entre 6-12s após carregar
   showTimer = setTimeout(showNext, 6000 + Math.random() * 6000);
+})();
+
+// ─── SCROLL JOURNEY LINE (mobile only) ───
+(function() {
+  // Só roda no mobile
+  if (window.innerWidth > 768) return;
+
+  // Cria o SVG fixo na lateral esquerda
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.id = 'journey-line';
+  svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+  Object.assign(svg.style, {
+    position:   'fixed',
+    left:       '6px',
+    top:        '0',
+    width:      '18px',
+    height:     '100vh',
+    zIndex:     '998',
+    pointerEvents: 'none',
+    overflow:   'visible',
+  });
+
+  // Trilha de fundo (fantasma)
+  const ghost = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  ghost.setAttribute('x1', '9'); ghost.setAttribute('y1', '0');
+  ghost.setAttribute('x2', '9'); ghost.setAttribute('y2', '100%');
+  ghost.setAttribute('stroke', 'rgba(200,150,42,0.12)');
+  ghost.setAttribute('stroke-width', '2');
+  ghost.setAttribute('stroke-dasharray', '4 6');
+
+  // Linha que cresce com o scroll
+  const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  line.setAttribute('x1', '9'); line.setAttribute('y1', '0');
+  line.setAttribute('x2', '9'); line.setAttribute('y2', '0');
+  line.setAttribute('stroke', 'url(#journeyGrad)');
+  line.setAttribute('stroke-width', '2.5');
+  line.setAttribute('stroke-linecap', 'round');
+
+  // Ponto-bola que acompanha o progresso
+  const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  dot.setAttribute('cx', '9');
+  dot.setAttribute('cy', '0');
+  dot.setAttribute('r', '4');
+  dot.setAttribute('fill', '#C8962A');
+  dot.setAttribute('stroke', '#fff');
+  dot.setAttribute('stroke-width', '1.5');
+
+  // Gradiente dourado→verde
+  const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+  defs.innerHTML = `
+    <linearGradient id="journeyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#E8B84B"/>
+      <stop offset="100%" stop-color="#C8962A"/>
+    </linearGradient>`;
+
+  svg.appendChild(defs);
+  svg.appendChild(ghost);
+  svg.appendChild(line);
+  svg.appendChild(dot);
+  document.body.appendChild(svg);
+
+  function update() {
+    const scrollTop  = window.scrollY || document.documentElement.scrollTop;
+    const docHeight  = document.documentElement.scrollHeight - window.innerHeight;
+    const pct        = Math.min(Math.max(scrollTop / docHeight, 0), 1);
+    const vh         = window.innerHeight;
+    const y          = pct * vh;
+
+    line.setAttribute('y2', y);
+    dot.setAttribute('cy', y);
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) svg.style.display = 'none';
+    else svg.style.display = '';
+  });
+  update();
 })();
 </script>
 
