@@ -203,8 +203,8 @@
     .mobile-br { display: none; }
     @media (max-width: 540px) {
       .mobile-br { display: block; }
-      .hero h1 { font-size: 2.1rem; }
-      .hero-badge { font-size: 10px; white-space: nowrap; }
+      .hero h1 { font-size: 1.85rem; line-height: 1.2; }
+      .hero-badge { font-size: 10px; white-space: normal; text-align: center; padding: 6px 14px; }
     }
 
     /* ─── BTN PRIMARY ─── */
@@ -266,6 +266,7 @@
 
     /* ─── SECTION BASE ─── */
     .section { padding: 64px 24px; }
+    @media (max-width: 540px) { .section { padding: 40px 16px; } }
     .section-dark { background: var(--verde); }
     .section-light { background: var(--creme); }
     .section-white { background: var(--branco); }
@@ -471,7 +472,7 @@
 
     .step-card {
       text-align: center;
-      padding: 28px 20px;
+      padding: 20px 16px;
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(200,150,42,0.2);
       border-radius: 16px;
@@ -506,8 +507,8 @@
       .bonus-item:nth-child(even) { flex-direction: row-reverse; }
     }
     .bonus-img-wrap {
-      width: 180px;
-      height: 220px;
+      width: 140px;
+      height: 170px;
       background: rgba(255,255,255,0.08);
       border-radius: 12px;
       flex-shrink: 0;
@@ -587,7 +588,7 @@
     }
     .offer-price {
       font-family: 'Playfair Display', serif;
-      font-size: 4rem;
+      font-size: clamp(2.8rem, 10vw, 4rem);
       color: var(--verde);
       line-height: 1;
       margin-bottom: 4px;
@@ -642,7 +643,7 @@
       gap: 16px;
       flex-wrap: wrap;
     }
-    .offer-trust span::before { content: '🔒 '; }
+    .offer-trust span::before { content: ''; }
     .payment-methods {
       display: flex;
       flex-wrap: wrap;
@@ -691,14 +692,14 @@
     }
     .timer-digit {
       font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
+      font-size: clamp(1.8rem, 7vw, 2.4rem);
       font-weight: 900;
       color: var(--verde);
       background: var(--creme);
       border: 2px solid var(--borda);
       border-radius: 10px;
-      padding: 6px 14px;
-      min-width: 64px;
+      padding: 6px 10px;
+      min-width: 56px;
       display: block;
       line-height: 1;
     }
@@ -747,7 +748,7 @@
       margin: 0 auto;
       border: 2px solid var(--dourado);
       border-radius: 20px;
-      padding: 36px 28px;
+      padding: 28px 20px;
       text-align: center;
       background: var(--branco);
       box-shadow: 0 4px 24px rgba(0,0,0,0.06);
@@ -823,13 +824,52 @@
 
     /* ─── CANVAS PARTICLES ─── */
     canvas.particles { position: absolute; inset: 0; pointer-events: none; }
+
+    /* ─── MOBILE OPTIMIZATIONS (primary target) ─── */
+    @media (max-width: 540px) {
+      .container { padding: 0 4px; }
+      .hero { padding: 40px 16px 48px; }
+      .hero h1 em { display: block; margin-top: 4px; }
+      .hero-trust { gap: 12px; flex-wrap: wrap; justify-content: center; }
+      .hero-trust-item { font-size: 11px; }
+      .section-title { font-size: clamp(1.4rem, 5vw, 1.8rem); }
+      .section-subtitle { font-size: 14px; margin-bottom: 28px; }
+      .conditions-grid { columns: 2; column-gap: 12px; }
+      .condition-item { font-size: 12px; }
+      .recipe-card { padding: 20px 16px; }
+      .recipe-img { max-width: 100%; height: 160px; }
+      .recipe-body h3 { font-size: 1.05rem; }
+      .benefit-card { padding: 14px 10px 16px; }
+      .benefit-visual { width: 48px; height: 48px; }
+      .offer-box { padding: 28px 16px; border-radius: 16px; }
+      .offer-product-name { font-size: 1.15rem; }
+      .offer-cta { font-size: 0.95rem; padding: 16px 20px; }
+      .btn-primary { font-size: 0.95rem; padding: 16px 24px; }
+      .guarantee-box { padding: 24px 16px; }
+      .guarantee-box h3 { font-size: 1.2rem; }
+      .bonus-item { gap: 16px; }
+      .bonus-img-wrap { width: 120px; height: 150px; }
+      .bonus-body h3 { font-size: 1.1rem; }
+      .faq-question { font-size: 14px; padding: 14px 0; }
+      .timer-digit { font-size: 1.8rem; min-width: 50px; padding: 6px 10px; }
+      .timer-sep { font-size: 1.6rem; }
+      .step-number { width: 40px; height: 40px; font-size: 17px; }
+      .step-card h3 { font-size: 14px; }
+    }
+    @media (max-width: 380px) {
+      .hero h1 { font-size: 1.65rem; }
+      .hero-badge { font-size: 9px; }
+      .section-title { font-size: 1.35rem; }
+      .offer-price { font-size: 2.5rem; }
+      .conditions-grid { columns: 1; }
+    }
   </style>
 </head>
 <body>
 
 <!-- URGENCY BAR -->
 <div class="urgency-bar">
-  <span id="viewer-count">247</span> personas están viendo esta página ahora mismo &nbsp;·&nbsp; Oferta por tiempo limitado
+  <span id="viewer-count">247</span> personas están viendo esto ahora
 </div>
 
 <!-- ═══════════════════ HERO ═══════════════════ -->
@@ -837,27 +877,37 @@
   <canvas class="hero-canvas" id="canvas-hero"></canvas>
 
   <div class="container" style="position:relative;z-index:1;">
-    <div class="hero-badge">🌿 El saber de tus tatarabuelos · Redescubierto</div>
+    <div class="hero-badge">Lo que la farmacia nunca va a decirte</div>
 
     <h1>
-      El secreto ancestral<br>
-      que <em>previene,<br class="mobile-br">
-      cura y da alivio</em>
+      ¿Pesadez después de comer, noches sin dormir,<br class="mobile-br">
+      cuerpo adolorido al despertar<br>
+      o la primera tos del invierno?<br>
+      <em>Las abuelas tenían un preparado<br class="mobile-br"> para cada uno de esos problemas.</em>
     </h1>
 
     <img
-      src="https://res.cloudinary.com/def9lnal7/image/upload/v1781580081/ChatGPT_Image_16_de_jun._de_2026_00_20_53_scopoh.webp"
-      alt="Presión, azúcar, insomnio, artritis y más, remedios naturales ancestrales"
+      src="https://res.cloudinary.com/def9lnal7/image/upload/v1781715841/1.HERO_PRINCIPAL_x1r5xp.webp"
+      alt="Cozinha ancestral com ervas medicinais, chá e preparados naturais das avós"
       width="900" height="320"
       fetchpriority="high"
       decoding="async"
-      style="display:block;width:100%;max-width:720px;height:auto;margin:0 auto 28px;border-radius:16px;"
+      style="display:block;width:100%;max-width:720px;height:auto;margin:0 auto 20px;border-radius:16px;"
     >
+
+    <p style="color:rgba(255,255,255,0.80); font-size:clamp(0.95rem,2.2vw,1.1rem); line-height:1.65; max-width:620px; margin:0 auto 28px; text-align:center;">
+      Este compendio reúne <strong style="color:var(--dourado-claro);">más de 200 preparados ancestrales</strong> organizados por problema,
+      con ingredientes que ya tienes en tu cocina. Un saber que casi se perdió con esa generación. Hoy puedes tenerlo en tu celular en menos de un minuto.
+    </p>
+
+    <div style="text-align:center; margin-bottom:22px;">
+      <a href="#comprar" class="btn-primary">Quiero el preparado que me falta</a>
+    </div>
 
     <div class="hero-trust">
       <span class="hero-trust-item">Acceso inmediato</span>
       <span class="hero-trust-item">100% Natural</span>
-      <span class="hero-trust-item hero-trust-cta">⬇ Baja ahora</span>
+      <span class="hero-trust-item">Sin suscripciones</span>
     </div>
   </div>
 </section>
@@ -866,9 +916,46 @@
 <section class="section section-light">
   <div class="container">
     <div class="reveal">
-      <div class="section-eyebrow">Tu botiquín natural completo</div>
-      <h2 class="section-title dark">Después de los 50, el cuerpo tiene muchas preguntas.<br>Este libro tiene las respuestas.</h2>
-      <p class="section-subtitle">+200 remedios organizados por condición. Busca lo que te aqueja hoy y encuentra tu solución natural para prevenir y también para aliviar.</p>
+      <div class="section-eyebrow">El saber que casi se perdió</div>
+      <h2 class="section-title dark">El cuerpo avisa cuando algo no está bien.<br>Este compendio tiene la respuesta.</h2>
+
+      <div style="max-width:680px; margin:0 auto 36px; text-align:left;">
+        <div style="display:flex; align-items:flex-start; gap:24px; margin-bottom:20px; flex-wrap:wrap; flex-direction:column;">
+          <img
+            src="https://res.cloudinary.com/def9lnal7/image/upload/v1781715841/2.Hero-alternativo-_versa%CC%83o-com-pessoa__aprwzx.webp"
+            alt="Mujer latina mayor con té de hierbas medicinales en su cocina"
+            width="320" height="200"
+            loading="lazy" decoding="async"
+            style="width:100%; max-width:100%; height:auto; border-radius:14px; flex-shrink:0;"
+          >
+          <div style="flex:1; min-width:220px;">
+            <p style="font-size:15px; line-height:1.75; color:var(--texto-suave); margin-bottom:16px;">
+              Si alguna vez te fuiste a dormir cansado y aún así no pudiste descansar…
+              Si te levantaste con el cuerpo entumecido sin haber hecho nada especial el día anterior…
+              Si la digestión pesada te roba las horas de la tarde…
+              Si la primera tos del invierno ya te tiene pensando en la farmacia…
+            </p>
+            <p style="font-size:15px; line-height:1.75; color:var(--texto-suave); margin-bottom:16px;">
+              <strong style="color:var(--verde);">No es que tu cuerpo esté fallando. Es que nadie te enseñó lo que las abuelas sabían.</strong>
+            </p>
+            <p style="font-size:15px; line-height:1.75; color:var(--texto-suave); margin-bottom:16px;">
+              Mientras tanto, la farmacia tiene un remedio para cada síntoma, pero ninguno para la raíz. Las abuelas lo resolvían con tres ingredientes de la cocina. No es que los remedios no funcionen. Es que nadie los organizó para que pudieras encontrar el tuyo en 30 segundos.
+            </p>
+            <p style="font-size:15px; line-height:1.75; color:var(--texto-suave);">
+              Esa generación tenía un preparado para cada molestia: hecho en casa, con ingredientes de cocina, sin gastar de más.
+              Ese saber casi desapareció. Este compendio lo recuperó todo y lo organizó por problema,
+              para que en 30 segundos sepas exactamente qué preparar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div><!-- end .reveal -->
+
+    <div style="text-align:center; margin-bottom:16px;">
+      <div style="display:inline-flex; align-items:center; gap:6px; background:#F0F7F2; border:1px solid #C8E6C9; border-radius:100px; padding:7px 20px; font-size:13px; color:#1B5E20; font-weight:600; margin-bottom:8px;">
+        <span>✓</span><span>+4.700 personas ya encontraron el suyo</span>
+      </div>
+      <p style="font-size:14px; color:var(--texto-suave);">Busca tu molestia. En 30 segundos sabes qué preparar.</p>
     </div>
 
     <div class="conditions-grid reveal">
@@ -924,11 +1011,10 @@
       <div class="condition-item">Tos</div>
       <div class="condition-item">Triglicéridos Altos</div>
       <div class="condition-item highlight">Várices</div>
-      <div class="condition-item highlight">Obesidad</div>
     </div>
 
     <p class="conditions-footer reveal">
-      Esto es solo una muestra. El compendio completo incluye <strong>200</strong> recetas:
+      Esto es solo una muestra. El compendio completo incluye <strong>200</strong> preparados:
       para prevenir antes de que aparezca el problema y para aliviar cuando ya está presente.
     </p>
   </div>
@@ -939,9 +1025,9 @@
   <canvas class="particles" id="canvas-benefits"></canvas>
   <div class="container" style="position:relative;z-index:1;">
     <div class="reveal">
-      <div class="section-eyebrow" style="color:var(--dourado);">Por qué este compendio</div>
+      <div class="section-eyebrow" style="color:var(--dourado);">Lo que hace diferente a este compendio</div>
       <h2 class="section-title light">Simple, natural y desde tu cocina</h2>
-      <p class="section-subtitle light">Sin recetas costosas ni ingredientes exóticos.</p>
+      <p class="section-subtitle light">Sin preparados costosos ni ingredientes exóticos.</p>
     </div>
 
     <div class="benefits-grid">
@@ -956,11 +1042,10 @@
             <line x1="15" y1="8" x2="25" y2="8" stroke="#E8B84B" stroke-width="1.2" stroke-linecap="round"/>
             <line x1="15" y1="11" x2="25" y2="11" stroke="#E8B84B" stroke-width="1.2" stroke-linecap="round"/>
             <line x1="15" y1="14" x2="22" y2="14" stroke="#E8B84B" stroke-width="1.2" stroke-linecap="round"/>
-            <text x="13" y="19" font-size="7" fill="#E8B84B" font-weight="bold" font-family="serif">+200</text>
           </svg>
         </div>
-        <h3>+200 remedios<br>en un libro</h3>
-        <p>Todo el saber ancestral organizado. Sin buscar en distintos sitios.</p>
+        <h3>200 preparados<br>en un solo lugar</h3>
+        <p>Buscas tu molestia. En 30 segundos sabes qué preparar y cuánto usar.</p>
       </div>
 
       <!-- Card 2: Prevención y alivio -->
@@ -975,7 +1060,7 @@
           </svg>
         </div>
         <h3>Prevención<br>y alivio</h3>
-        <p>Cada remedio indica cuándo prevenir y cuándo aliviar.</p>
+        <p>Cada preparado te dice si tomarlo antes de que aparezca el problema, o cuando ya está presente.</p>
       </div>
 
       <!-- Card 3: Ingredientes accesibles -->
@@ -1009,7 +1094,7 @@
           </svg>
         </div>
         <h3>Paso a paso<br>y sin errores</h3>
-        <p>Cantidades exactas y frecuencia de uso en cada receta.</p>
+        <p>Sin adivinar. Cantidad exacta, frecuencia exacta, tiempo exacto, en cada página.</p>
       </div>
 
       <!-- Card 5: Acceso inmediato -->
@@ -1032,15 +1117,12 @@
       <div class="benefit-card reveal">
         <div class="benefit-visual">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="16" cy="16" r="12" fill="rgba(200,150,42,0.12)" stroke="#C8962A" stroke-width="1.5"/>
-            <path d="M16 8 C13.2 8 11 10.2 11 13 C11 16.5 16 22 16 22 C16 22 21 16.5 21 13 C21 10.2 18.8 8 16 8Z" fill="rgba(200,150,42,0.2)" stroke="#E8B84B" stroke-width="1.2"/>
-            <circle cx="16" cy="13" r="2" fill="#E8B84B"/>
-            <line x1="16" y1="22" x2="16" y2="25" stroke="#C8962A" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="12" y1="26" x2="20" y2="26" stroke="#C8962A" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="16" cy="16" r="11" fill="rgba(200,150,42,0.12)" stroke="#C8962A" stroke-width="1.5"/>
+            <path d="M10 16 L14 20 L22 12" stroke="#E8B84B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3>$9 una vez,<br>tuyo para siempre</h3>
-        <p>Sin suscripciones ni renovaciones. Pago único.</p>
+        <h3>Un pago,<br>tuyo para siempre</h3>
+        <p>Sin suscripciones ni renovaciones. Lo descargas hoy y lo tienes de por vida.</p>
       </div>
 
     </div>
@@ -1051,7 +1133,7 @@
 <section class="section section-white">
   <div class="container">
     <div class="reveal">
-      <div class="section-eyebrow">Muestra gratuita</div>
+      <div class="section-eyebrow">Esto es lo que vas a preparar esta noche</div>
       <h2 class="section-title dark">4 de los +200 remedios que recibirás</h2>
       <p class="section-subtitle">Distintos problemas, distintas soluciones. Así funciona el compendio: un remedio específico para cada cosa que te aqueja para prevenirla o para aliviarla.</p>
     </div>
@@ -1059,7 +1141,7 @@
     <!-- Recipe 1 -->
     <div class="recipe-card reveal">
       <div class="recipe-img">
-        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562208/Slide_3_Te%CC%81_para_la_Digestio%CC%81n_Pa%CC%81g._42_nryntv.webp" alt="Té para la Digestión" onerror="this.style.display='none'">
+        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781715842/3.Cena-digesta%CC%83o-_para-recipe-card-Pa%CC%81g.-42__zw4zuu.webp" alt="Té Digestivo de la Abuela" onerror="this.style.display='none'">
       </div>
       <div class="recipe-body">
         <h3>Té Digestivo de la Abuela · Pág. 42</h3>
@@ -1071,7 +1153,7 @@
     <!-- Recipe 2 -->
     <div class="recipe-card reveal">
       <div class="recipe-img">
-        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562208/Slide_2_Bebida_para_el_Insomnio_Pa%CC%81g._34_kedwlr.webp" alt="Bebida para el Insomnio" onerror="this.style.display='none'">
+        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781715842/4.Cena-insomnio-_para-recipe-card-Pa%CC%81g.-34__dpyjme.webp" alt="Bebida para el Insomnio" onerror="this.style.display='none'">
       </div>
       <div class="recipe-body">
         <h3>Bebida para el Insomnio · Pág. 34</h3>
@@ -1083,7 +1165,7 @@
     <!-- Recipe 3 -->
     <div class="recipe-card reveal">
       <div class="recipe-img">
-        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562208/Slide_4_Pan%CC%83o_Caliente_para_Mu%CC%81sculos_Pa%CC%81g._78_tqvgkq.webp" alt="Paño para Músculos" onerror="this.style.display='none'">
+        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781715842/5.-Cena-mu%CC%81sculos-_para-recipe-card-Pa%CC%81g.-78__1_undjba.webp" alt="Paño Herbal para Músculos y Espalda" onerror="this.style.display='none'">
       </div>
       <div class="recipe-body">
         <h3>Paño Herbal para Músculos y Espalda · Pág. 78</h3>
@@ -1095,7 +1177,7 @@
     <!-- Recipe 4 -->
     <div class="recipe-card reveal">
       <div class="recipe-img">
-        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562208/Slide_1_Jarabe_para_la_Tos_Pa%CC%81g._112_jlo5yp.webp" alt="Jarabe para la Tos" onerror="this.style.display='none'">
+        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781715842/6.Cena-tosse-_para-recipe-card-Pa%CC%81g.-112__ln5lwk.webp" alt="Jarabe Natural para la Tos" onerror="this.style.display='none'">
       </div>
       <div class="recipe-body">
         <h3>Jarabe Natural para la Tos · Pág. 112</h3>
@@ -1105,10 +1187,371 @@
     </div>
 
     <div style="text-align:center; margin-top:36px;" class="reveal">
-      <p style="font-size:15px; color:var(--texto-suave); margin-bottom:0;">
-        Estos son solo 4 ejemplos. El compendio completo tiene <strong style="color:var(--verde);">+200 remedios</strong> —
-        para prácticamente cualquier problema que enfrentes.
+      <p style="font-size:15px; color:var(--texto-suave); margin-bottom:20px;">
+        Estos son solo 4 ejemplos. El compendio completo tiene <strong style="color:var(--verde);">+200 remedios</strong> para prácticamente cualquier problema que enfrentes.
       </p>
+      <a href="#comprar" class="btn-primary">Quiero acceder al compendio completo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
+<section class="section section-dark">
+  <canvas class="particles" id="canvas-test"></canvas>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="reveal">
+      <div class="section-eyebrow" style="color:var(--dourado);">Lo que dice quien ya lo usa</div>
+      <h2 class="section-title light">Resultados reales, palabras reales</h2>
+
+      <!-- Proof counter bar -->
+      <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin:0 auto 40px; max-width:600px;">
+        <div style="text-align:center;">
+          <div style="font-family:'Playfair Display',serif; font-size:clamp(1.4rem,6vw,2rem); font-weight:900; color:var(--dourado-claro);">+4.700</div>
+          <div style="font-size:12px; color:rgba(255,255,255,0.55); margin-top:2px;">personas con acceso</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:'Playfair Display',serif; font-size:clamp(1.4rem,6vw,2rem); font-weight:900; color:var(--dourado-claro);">★ 4.9</div>
+          <div style="font-size:12px; color:rgba(255,255,255,0.55); margin-top:2px;">calificación promedio</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:'Playfair Display',serif; font-size:clamp(1.4rem,6vw,2rem); font-weight:900; color:var(--dourado-claro);">14</div>
+          <div style="font-size:12px; color:rgba(255,255,255,0.55); margin-top:2px;">países del LATAM</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Facebook-style testimonials -->
+    <div style="display:grid; grid-template-columns:1fr; gap:16px; max-width:560px; margin:0 auto;">
+
+      <!-- Testimonio 1 — digestión / México -->
+      <div class="reveal" style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,0.18);">
+        <div style="background:#1877F2; padding:8px 14px; display:flex; align-items:center; gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span style="color:white; font-size:11px; font-weight:700; letter-spacing:0.04em;">Facebook</span>
+        </div>
+        <div style="padding:14px 16px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781717498/ChatGPT_Image_17_de_jun._de_2026_14_30_53_8_wlamn1.webp" alt="María Guadalupe Torres" style="width:36px; height:36px; border-radius:50%; object-fit:cover; flex-shrink:0;">
+            <div>
+              <div style="font-size:13px; font-weight:700; color:#1a1a1a;">María Guadalupe Torres</div>
+              <div style="font-size:11px; color:#666;">&#127474;&#127485; Monterrey, México · hace 3 días</div>
+            </div>
+          </div>
+          <p style="font-size:13px; line-height:1.65; color:#1a1a1a; margin:0;">Toda la vida sufrí de digestión pesada después de comer. Me sentaba y la barriga se me hinchaba horrible. Con el té de la página 42 en 3 días noté diferencia. En una semana ya comía sin ese malestar de siempre. No puedo creer que sea tan simple.</p>
+          <div style="margin-top:10px; font-size:11px; color:#888;">Me gusta 147 &nbsp;&middot;&nbsp; 23 comentarios</div>
+        </div>
+      </div>
+
+      <!-- Testimonio 2 — insomnio / Colombia -->
+      <div class="reveal" style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,0.18);">
+        <div style="background:#1877F2; padding:8px 14px; display:flex; align-items:center; gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span style="color:white; font-size:11px; font-weight:700; letter-spacing:0.04em;">Facebook</span>
+        </div>
+        <div style="padding:14px 16px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781717498/ChatGPT_Image_17_de_jun._de_2026_14_30_52_6_uqhxuu.webp" alt="Rosa Helena Vargas" style="width:36px; height:36px; border-radius:50%; object-fit:cover; flex-shrink:0;">
+            <div>
+              <div style="font-size:13px; font-weight:700; color:#1a1a1a;">Rosa Helena Vargas</div>
+              <div style="font-size:11px; color:#666;">&#127464;&#127476; Medellín, Colombia · hace 5 días</div>
+            </div>
+          </div>
+          <p style="font-size:13px; line-height:1.65; color:#1a1a1a; margin:0;">Llevaba 4 años sin dormir bien. Me acostaba muerta de cansancio y me quedaba con los ojos abiertos hasta la 1, 2 de la mañana. Probé de todo: pastillas, melatonina, todo. La bebida caliente de la página 34 me la tomé por primera vez un martes. El miércoles me desperté a las 7am con el teléfono sonando. Dormí 8 horas corridas. No lo podía creer.</p>
+          <div style="margin-top:10px; font-size:11px; color:#888;">Me gusta 213 &nbsp;&middot;&nbsp; 41 comentarios</div>
+        </div>
+      </div>
+
+      <!-- Testimonio 3 — músculos / Argentina -->
+      <div class="reveal" style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,0.18);">
+        <div style="background:#1877F2; padding:8px 14px; display:flex; align-items:center; gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span style="color:white; font-size:11px; font-weight:700; letter-spacing:0.04em;">Facebook</span>
+        </div>
+        <div style="padding:14px 16px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781717498/ChatGPT_Image_17_de_jun._de_2026_14_30_52_7_bw9sjl.webp" alt="Jorge Ricardo Benítez" style="width:36px; height:36px; border-radius:50%; object-fit:cover; flex-shrink:0;">
+            <div>
+              <div style="font-size:13px; font-weight:700; color:#1a1a1a;">Jorge Ricardo Benítez</div>
+              <div style="font-size:11px; color:#666;">&#127462;&#127479; Córdoba, Argentina · hace 1 semana</div>
+            </div>
+          </div>
+          <p style="font-size:13px; line-height:1.65; color:#1a1a1a; margin:0;">Me levantaba todos los días con la espalda hecha pedazos, 3 años así. El paño herbal de la página 78 lo probé una noche antes de dormir. A la mañana siguiente me levanté sin ese dolor típico. Mi señora me preguntó qué había tomado. Ahora los dos usamos el compendio. Valió los 9 dólares cien veces.</p>
+          <div style="margin-top:10px; font-size:11px; color:#888;">Me gusta 189 &nbsp;&middot;&nbsp; 37 comentarios</div>
+        </div>
+      </div>
+
+      <!-- Testimonio 4 — tos / Perú -->
+      <div class="reveal" style="background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,0.18);">
+        <div style="background:#25D366; padding:8px 14px; display:flex; align-items:center; gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span style="color:white; font-size:11px; font-weight:700; letter-spacing:0.04em;">WhatsApp</span>
+        </div>
+        <div style="padding:14px 16px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781717497/ChatGPT_Image_17_de_jun._de_2026_14_30_52_5_wcdtvk.webp" alt="Carmen Milagros Quispe" style="width:36px; height:36px; border-radius:50%; object-fit:cover; flex-shrink:0;">
+            <div>
+              <div style="font-size:13px; font-weight:700; color:#1a1a1a;">Carmen Milagros Quispe</div>
+              <div style="font-size:11px; color:#666;">&#127477;&#127466; Lima, Perú · hace 4 días</div>
+            </div>
+          </div>
+          <div style="background:#DCF8C6; border-radius:0 10px 10px 10px; padding:10px 13px; margin-bottom:6px;">
+            <p style="font-size:13px; line-height:1.65; color:#1a1a1a; margin:0;">Mi hijo empezó con tos el domingo a la noche, yo ya me preparaba para ir a la farmacia el lunes. Me acordé del jarabe de la página 112. Lo preparé en 10 minutos con lo que tenía en casa. Al otro día la tos ya había bajado casi completamente. El martes estaba jugando como si nada.</p>
+          </div>
+          <div style="font-size:11px; color:#888;">Leído · 10:47 a.m.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA após depoimentos -->
+    <div style="text-align:center; margin-top:40px;" class="reveal">
+      <p style="font-size:14px; color:rgba(255,255,255,0.7); margin-bottom:6px; max-width:100%; margin-left:auto; margin-right:auto; padding:0 8px;">Más de 4.700 personas ya duermen mejor, digieren mejor y no corren a la farmacia.</p>
+      <p style="font-size:14px; color:rgba(255,255,255,0.9); font-weight:600; margin-bottom:16px;">Esta noche puedes ser una más.</p>
+      <a href="#comprar" class="btn-primary">Quiero el mismo resultado que ellos</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ SCIENCE BLOCK ═══════════════════ -->
+<section class="section section-light">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:40px;">
+      <div class="section-eyebrow">Por qué funcionan</div>
+      <h2 class="section-title dark">La ciencia detrás del saber ancestral</h2>
+      <p class="section-subtitle">Las abuelas no sabían los nombres de los compuestos. Pero los usaban correctamente. La investigación moderna confirmó lo que ellas ya sabían.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr; gap:20px; max-width:780px; margin:0 auto;">
+
+      <!-- Card 1: Digestão -->
+      <div class="reveal" style="background:#fff; border-radius:16px; padding:24px 28px; border-left:4px solid var(--dourado); box-shadow:0 2px 16px rgba(0,0,0,0.06);">
+        <div style="display:flex; align-items:flex-start; gap:16px; flex-wrap:wrap;">
+          <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781717497/ChatGPT_Image_17_de_jun._de_2026_14_30_50_1_i54hcc.webp" alt="Raíz de jengibre — gingeroles activos" style="width:80px; height:80px; border-radius:10px; object-fit:cover; flex-shrink:0;">
+          <div style="flex:1; min-width:200px;">
+            <div style="font-size:11px; font-weight:800; color:var(--dourado); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">Té Digestivo · Pág. 42</div>
+            <h3 style="font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--verde); margin-bottom:10px;">El jengibre y sus gingeroles</h3>
+            <p style="font-size:13px; line-height:1.7; color:var(--texto-suave); margin:0;">
+              El jengibre contiene compuestos activos llamados <strong style="color:var(--texto);">6-gingerol y 6-shogaol</strong>, estudiados por sus propiedades antiinflamatorias y digestivas. Investigaciones publicadas en <em>Frontiers in Pharmacology</em> (2022) documentaron que estos compuestos estimulan la motilidad digestiva, reducen los gases y calman el ardor estomacal al inhibir las vías inflamatorias COX-2. La combinación con hierbas carminativas, como las que usa el preparado de la pág. 42, amplifica ese efecto, algo que la medicina tradicional usó durante siglos antes de que la ciencia lo verificara.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Insomnio -->
+      <div class="reveal" style="background:#fff; border-radius:16px; padding:24px 28px; border-left:4px solid var(--dourado); box-shadow:0 2px 16px rgba(0,0,0,0.06);">
+        <div style="display:flex; align-items:flex-start; gap:16px; flex-wrap:wrap;">
+          <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781717497/ChatGPT_Image_17_de_jun._de_2026_14_30_50_2_hy7wvi.webp" alt="Flores de manzanilla — apigenina y receptores GABA" style="width:80px; height:80px; border-radius:10px; object-fit:cover; flex-shrink:0;">
+          <div style="flex:1; min-width:200px;">
+            <div style="font-size:11px; font-weight:800; color:var(--dourado); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">Bebida para el Insomnio · Pág. 34</div>
+            <h3 style="font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--verde); margin-bottom:10px;">La manzanilla y la apigenina</h3>
+            <p style="font-size:13px; line-height:1.7; color:var(--texto-suave); margin:0;">
+              La manzanilla contiene <strong style="color:var(--texto);">apigenina</strong>, un flavonoide que se une a los receptores GABA-A del cerebro, los mismos receptores que activan los medicamentos para la ansiedad, pero de forma suave y natural. Estudios publicados en <em>Psychiatry Investigation</em> (2024) y en el <em>National Institutes of Health</em> (PMC) documentaron su efecto sedante y ansiolítico. La valeriana, planta complementaria en el preparado de la pág. 34, actúa por la misma vía y fue revisada en 16 ensayos clínicos publicados en el <em>American Journal of Medicine</em>, con mejora del sueño en la mayoría de ellos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Músculos -->
+      <div class="reveal" style="background:#fff; border-radius:16px; padding:24px 28px; border-left:4px solid var(--dourado); box-shadow:0 2px 16px rgba(0,0,0,0.06);">
+        <div style="display:flex; align-items:flex-start; gap:16px; flex-wrap:wrap;">
+          <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781717497/ChatGPT_Image_17_de_jun._de_2026_14_30_51_3_i0gzrs.webp" alt="Hojas de eucalipto — 1,8-cineol analgésico" style="width:80px; height:80px; border-radius:10px; object-fit:cover; flex-shrink:0;">
+          <div style="flex:1; min-width:200px;">
+            <div style="font-size:11px; font-weight:800; color:var(--dourado); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">Paño Herbal · Pág. 78</div>
+            <h3 style="font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--verde); margin-bottom:10px;">El eucalipto y el 1,8-cineol</h3>
+            <p style="font-size:13px; line-height:1.7; color:var(--texto-suave); margin:0;">
+              El aceite de eucalipto contiene <strong style="color:var(--texto);">1,8-cineol (eucaliptol)</strong>, compuesto reconocido por la FDA como agente analgésico de categoría I para uso tópico. Estudios publicados en el <em>Journal of Ethnopharmacology</em> documentaron sus efectos analgésicos y antiinflamatorios al aplicarse en la piel. El alecrim, planta complementaria en paños musculares tradicionales, contiene ácido rosmarínico y carnosol, antioxidantes que reducen la inflamación del tejido conectivo. La combinación de calor húmedo con estas hierbas mejora la penetración de los compuestos activos, mecanismo que las abuelas intuitivamente ya usaban.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Tos -->
+      <div class="reveal" style="background:#fff; border-radius:16px; padding:24px 28px; border-left:4px solid var(--dourado); box-shadow:0 2px 16px rgba(0,0,0,0.06);">
+        <div style="display:flex; align-items:flex-start; gap:16px; flex-wrap:wrap;">
+          <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781717497/ChatGPT_Image_17_de_jun._de_2026_14_30_52_4_xyp4qp.webp" alt="Miel, jengibre y limón — antimicrobiano natural" style="width:80px; height:80px; border-radius:10px; object-fit:cover; flex-shrink:0;">
+          <div style="flex:1; min-width:200px;">
+            <div style="font-size:11px; font-weight:800; color:var(--dourado); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">Jarabe para la Tos · Pág. 112</div>
+            <h3 style="font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--verde); margin-bottom:10px;">La miel, el jengibre y el limón</h3>
+            <p style="font-size:13px; line-height:1.7; color:var(--texto-suave); margin:0;">
+              La miel recibió aprobación de la FDA para uso tópico como agente antimicrobiano en 2007, y las guías del <em>National Institute for Health and Care Excellence</em> (NICE) del Reino Unido la recomiendan como <strong style="color:var(--texto);">primera línea de tratamiento para la tos aguda</strong> por infección respiratoria. Los gingeroles del jengibre tienen propiedades antivirales documentadas en estudios de <em>ScienceDirect</em> (2025), y el limón aporta vitamina C con efecto comprobado de reducción en la duración del resfriado. El jarabe de la pág. 112 combina exactamente estos tres activos, el mismo principio que la investigación moderna confirma como efectivo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- disclaimer moved to FAQ -->
+  </div>
+</section>
+
+<!-- HOW IT WORKS moved after guarantee -->
+<!-- ═══════════════════ BONUSES ═══════════════════ -->
+<section class="section section-dark">
+  <canvas class="particles" id="canvas-bonus"></canvas>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="reveal">
+      <div class="section-eyebrow" style="color:var(--dourado);">Incluido sin costo adicional</div>
+      <h2 class="section-title light">3 regalos que potencian cada preparado</h2>
+      <p class="section-subtitle light">Tres guías que multiplican el efecto del compendio desde el primer día.</p>
+    </div>
+
+    <div class="bonus-item reveal">
+      <div class="bonus-img-wrap">
+        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562207/Bo%CC%82nus_1_Gui%CC%81a_del_Suen%CC%83o_Profundo_qctxxk.webp" alt="Guía del Sueño Profundo" onerror="this.style.display='none'">
+      </div>
+      <div class="bonus-body">
+        <span class="bonus-tag">Regalo #1</span>
+        <h3>Guía del Sueño Profundo</h3>
+        <p>Si te acuestas cansado y te despiertas igual, esta guía hace que el preparado de la pág. 34 funcione el doble. Rutinas nocturnas específicas que potencian el efecto de las hierbas. Duerme 7 horas seguidas o más, sin pastillas.</p>
+        <div class="bonus-value">Valor: <s>$19 USD</s> <strong>GRATIS</strong></div>
+      </div>
+    </div>
+
+    <div class="bonus-item reveal">
+      <div class="bonus-img-wrap">
+        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562208/Bo%CC%82nus_2_Plan_de_Alivio_para_Espalda_rcoooi.webp" alt="Plan de Alivio para Espalda" onerror="this.style.display='none'">
+      </div>
+      <div class="bonus-body">
+        <span class="bonus-tag">Regalo #2</span>
+        <h3>Plan de Alivio para Espalda y Músculos</h3>
+        <p>El paño herbal alivia. Esto hace que el alivio dure días, no horas. Movimientos suaves y posturas correctivas que combinan con el preparado de la pág. 78 para un resultado que se mantiene.</p>
+        <div class="bonus-value">Valor: <s>$19 USD</s> <strong>GRATIS</strong></div>
+      </div>
+    </div>
+
+    <div class="bonus-item reveal">
+      <div class="bonus-img-wrap">
+        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562207/Bo%CC%82nus_3_Recetario_de_Cocina_Saludable_b7anr7.webp" alt="Recetario de Cocina Saludable" onerror="this.style.display='none'">
+      </div>
+      <div class="bonus-body">
+        <span class="bonus-tag">Regalo #3</span>
+        <h3>Recetario de Cocina Saludable</h3>
+        <p>Ciertos alimentos bloquean el efecto de las hierbas sin que lo sepas. Este recetario te dice exactamente cuáles evitar y cuáles potencian cada preparado, para que el compendio trabaje al máximo desde el primer día.</p>
+        <div class="bonus-value">Valor: <s>$15 USD</s> <strong>GRATIS</strong></div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:16px;" class="reveal">
+      <a href="#comprar" class="btn-primary">Sí, quiero el compendio y los 3 regalos</a>
+    </div>
+  </div>
+</section>
+<section class="section section-white" id="comprar">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:32px;">
+      <div class="section-eyebrow">Precio de lanzamiento · Puede subir en cualquier momento</div>
+      <h2 class="section-title dark">Tu botiquín natural completo por $9</h2>
+      <p style="text-align:center; color:var(--texto-suave); font-size:15px; max-width:500px; margin:0 auto;">
+        +200 preparados ancestrales organizados por problema. Encuentra tu molestia y en 30 segundos sabes qué hacer, con lo que ya tienes en casa.
+      </p>
+    </div>
+
+    <!-- Timer -->
+    <div class="timer-wrap reveal">
+      <div class="timer-label">Oferta expira en:</div>
+      <div class="timer-display">
+        <div class="timer-unit">
+          <span class="timer-digit" id="timer-min">14</span>
+          <span class="timer-unit-label">Min</span>
+        </div>
+        <span class="timer-sep">:</span>
+        <div class="timer-unit">
+          <span class="timer-digit" id="timer-sec">59</span>
+          <span class="timer-unit-label">Seg</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="offer-box reveal">
+      <div class="offer-badge">MÁS VENDIDO · Acceso inmediato</div>
+      <p class="offer-product-name">El Compendio de la Abuela</p>
+      <p class="offer-subtitle">El compendio completo más las 3 guías que multiplican su efecto</p>
+      <img
+        src="https://res.cloudinary.com/def9lnal7/image/upload/v1781726351/ChatGPT_Image_17_de_jun._de_2026_16_58_24_o99zdw.webp"
+        alt="Lo Que Tu Abuela Sabía Curar · +200 Remedios Naturales"
+        width="480" height="320"
+        loading="lazy" decoding="async"
+        style="display:block;width:100%;max-width:380px;height:auto;margin:16px auto 20px;border-radius:10px;"
+      >
+      <div class="offer-price-old">$47 USD</div>
+      <div class="offer-price"><sup>$</sup>9<sub> USD</sub></div>
+      <p class="offer-currency">$9 USD · Se cobra en tu moneda local al momento del pago</p>
+
+      <!-- Value stack -->
+      <div style="background:#F7F3EB; border-radius:12px; padding:16px; margin-bottom:20px; text-align:left;">
+        <div style="font-size:11px; font-weight:800; color:var(--verde); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px;">Lo que recibes hoy:</div>
+        <div style="display:flex; justify-content:space-between; font-size:13px; padding:6px 0; border-bottom:1px solid #E8E0D0;">
+          <span style="color:var(--texto);">+200 Remedios Naturales Ancestrales</span>
+          <span style="color:#999; text-decoration:line-through;">$29</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:13px; padding:6px 0; border-bottom:1px solid #E8E0D0;">
+          <span style="color:var(--texto);">Guía del Sueño Profundo</span>
+          <span style="color:#999; text-decoration:line-through;">$19</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:13px; padding:6px 0; border-bottom:1px solid #E8E0D0;">
+          <span style="color:var(--texto);">Plan de Alivio Espalda y Músculos</span>
+          <span style="color:#999; text-decoration:line-through;">$19</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:13px; padding:6px 0; border-bottom:1px solid #E8E0D0;">
+          <span style="color:var(--texto);">Recetario de Cocina Saludable</span>
+          <span style="color:#999; text-decoration:line-through;">$15</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:14px; font-weight:800; padding:10px 0 4px; color:var(--verde);">
+          <span>Valor total real</span>
+          <span style="text-decoration:line-through; color:#999;">$82 USD</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:16px; font-weight:800; color:var(--verde);">
+          <span>Hoy pagas solo</span>
+          <span style="color:#C0392B;">$9 USD</span>
+        </div>
+      </div>
+
+      <p style="font-size:14px; color:var(--texto-suave); text-align:center; margin:0 0 8px; line-height:1.6;">Todo lo que necesitas para no depender de la farmacia.<br><strong style="color:var(--verde);">Por el precio de un café.</strong></p>
+      <p style="font-size:13px; color:var(--dourado); text-align:center; font-weight:700; margin:0 0 20px; letter-spacing:0.02em;">En menos de un minuto está en tu celular. Esta noche ya lo usas.</p>
+
+      <a href="https://pay.hotmart.com/P106351091P" class="offer-cta" target="_blank" rel="noopener">
+        Acceder ahora por $9
+      </a>
+
+      <div class="offer-trust">
+        <span>Pago 100% seguro</span>
+        <span>Garantía 30 días</span>
+        <span>Acceso inmediato</span>
+      </div>
+
+      <div class="payment-methods">
+        <span class="payment-pill">Visa</span>
+        <span class="payment-pill">MasterCard</span>
+        <span class="payment-pill">PayPal</span>
+        <span class="payment-pill">OXXO</span>
+        <span class="payment-pill">PIX</span>
+        <span class="payment-pill">Mercado Pago</span>
+        <span class="payment-pill">SPEI</span>
+        <span class="payment-pill">Google Pay</span>
+      </div>
+
+      <div class="flags">
+        🇲🇽🇨🇴🇦🇷🇨🇱🇵🇪🇻🇪🇪🇨🇧🇴🇺🇾🇵🇾🇬🇹🇩🇴🇭🇳🇸🇻🇳🇮🇨🇷🇵🇦🇪🇸
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ GUARANTEE ═══════════════════ -->
+<section class="section section-light">
+  <div class="container">
+    <div class="guarantee-box reveal">
+      <img
+        src="https://res.cloudinary.com/def9lnal7/image/upload/v1781716162/Garanti%CC%81a-30-di%CC%81as_af0aii.webp"
+        alt="Sello de Garantía 30 Días · 100% Satisfacción"
+        width="160" height="160"
+        loading="lazy" decoding="async"
+        style="display:block;width:120px;height:120px;object-fit:contain;margin:0 auto 20px;"
+      >
+      <h3>Garantía de Devolución Total de 30 Días</h3>
+      <p>Prueba el compendio durante 30 días completos. Si no encuentras al menos 3 preparados que te ayuden con lo que te aqueja, escríbenos un email y te devolvemos cada centavo. Sin preguntas, sin formularios, sin excusas.</p>
+      <p style="margin-top:12px; font-size:13px; color:var(--texto-suave);">Ofrecemos 30 días porque sabemos que funciona. El riesgo es nuestro, no tuyo.</p>
     </div>
   </div>
 </section>
@@ -1137,203 +1580,6 @@
         <h3>Busca tu problema y actúa</h3>
         <p>El compendio está organizado por condición. Encuentra tu remedio y prepáralo hoy.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
-<section class="section section-dark">
-  <canvas class="particles" id="canvas-test"></canvas>
-  <div class="container" style="position:relative;z-index:1;">
-    <div class="reveal">
-      <div class="section-eyebrow" style="color:var(--dourado);">Lo que dicen nuestras lectoras</div>
-      <h2 class="section-title light">Resultados reales, palabras reales</h2>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Llevo 3 años con la presión alta. El té de la página 18 me ayudó a bajarla en dos semanas sin cambiar mis medicamentos. Mi médico quedó sorprendido."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">
-            <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562207/Avatar_Maria_Elena.png_btr0w1.webp" alt="María Elena" onerror="this.parentElement.style.background='rgba(200,150,42,0.2)'">
-          </div>
-          <div>
-            <div class="testimonial-name">María Elena R.</div>
-            <div class="testimonial-location">Guadalajara, México</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card reveal">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"No dormía bien desde hacía años. Con la bebida para el insomnio de la página 34, en cuatro días ya estaba durmiendo de corrido. No lo puedo creer todavía."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">
-            <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562207/Avatar_Rosa_Hernandez.png_qv3tup.webp" alt="Rosa Hernández" onerror="this.parentElement.style.background='rgba(200,150,42,0.2)'">
-          </div>
-          <div>
-            <div class="testimonial-name">Rosa Hernández</div>
-            <div class="testimonial-location">Bogotá, Colombia</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card reveal">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Mi azúcar estaba en 180. Empecé con el tónico herbal y en un mes bajé a 130. Mi esposa también lo usa para la presión. Valió cada peso de lo que costó."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">
-            <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562207/Avatar_Carlos_Mendoza.png_g034xp.webp" alt="Carlos Mendoza" onerror="this.parentElement.style.background='rgba(200,150,42,0.2)'">
-          </div>
-          <div>
-            <div class="testimonial-name">Carlos Mendoza</div>
-            <div class="testimonial-location">Lima, Perú</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ BONUSES ═══════════════════ -->
-<section class="section section-dark">
-  <canvas class="particles" id="canvas-bonus"></canvas>
-  <div class="container" style="position:relative;z-index:1;">
-    <div class="reveal">
-      <div class="section-eyebrow" style="color:var(--dourado);">Solo por hoy</div>
-      <h2 class="section-title light">3 regalos exclusivos incluidos</h2>
-      <p class="section-subtitle light">Compras el compendio y recibes estos 3 guías sin costo adicional.</p>
-    </div>
-
-    <div class="bonus-item reveal">
-      <div class="bonus-img-wrap">
-        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562207/Bo%CC%82nus_1_Gui%CC%81a_del_Suen%CC%83o_Profundo_qctxxk.webp" alt="Guía del Sueño Profundo" onerror="this.style.display='none'">
-      </div>
-      <div class="bonus-body">
-        <span class="bonus-tag">Regalo #1</span>
-        <h3>Guía del Sueño Profundo</h3>
-        <p>Si el insomnio te agota, esta guía complementa los remedios con rutinas nocturnas, posiciones y hábitos que potencian el efecto de las hierbas. Duerme 7 horas seguidas o más, sin pastillas.</p>
-        <div class="bonus-value">Valor: <s>$19 USD</s> <strong>GRATIS</strong></div>
-      </div>
-    </div>
-
-    <div class="bonus-item reveal">
-      <div class="bonus-img-wrap">
-        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562208/Bo%CC%82nus_2_Plan_de_Alivio_para_Espalda_rcoooi.webp" alt="Plan de Alivio para Espalda" onerror="this.style.display='none'">
-      </div>
-      <div class="bonus-body">
-        <span class="bonus-tag">Regalo #2</span>
-        <h3>Plan de Alivio para Espalda y Músculos</h3>
-        <p>El dolor de espalda no se cura solo con remedios. Este plan combina los paños herbales del compendio con movimientos suaves y posturas correctivas para un alivio duradero.</p>
-        <div class="bonus-value">Valor: <s>$19 USD</s> <strong>GRATIS</strong></div>
-      </div>
-    </div>
-
-    <div class="bonus-item reveal">
-      <div class="bonus-img-wrap">
-        <img src="https://res.cloudinary.com/def9lnal7/image/upload/v1781562207/Bo%CC%82nus_3_Recetario_de_Cocina_Saludable_b7anr7.webp" alt="Recetario de Cocina Saludable" onerror="this.style.display='none'">
-      </div>
-      <div class="bonus-body">
-        <span class="bonus-tag">Regalo #3</span>
-        <h3>Recetario de Cocina Saludable</h3>
-        <p>Los remedios funcionan mejor cuando comes bien. Este recetario te muestra qué alimentos potencian las hierbas medicinales y cuáles las bloquean, con recetas fáciles y económicas.</p>
-        <div class="bonus-value">Valor: <s>$15 USD</s> <strong>GRATIS</strong></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ OFFER ═══════════════════ -->
-<section class="section section-white" id="comprar">
-  <div class="container">
-    <div class="reveal" style="text-align:center; margin-bottom:32px;">
-      <div class="section-eyebrow">⚠️ Esta oferta no se repetirá</div>
-      <h2 class="section-title dark">Tu botiquín natural completo por $9</h2>
-      <p style="text-align:center; color:var(--texto-suave); font-size:15px; max-width:500px; margin:0 auto;">
-        +200 remedios para prevenir y aliviar prácticamente cualquier condición que aparece después de los 50.
-      </p>
-    </div>
-
-    <!-- Timer -->
-    <div class="timer-wrap reveal">
-      <div class="timer-label">⏰ Oferta expira en:</div>
-      <div class="timer-display">
-        <div class="timer-unit">
-          <span class="timer-digit" id="timer-min">14</span>
-          <span class="timer-unit-label">Min</span>
-        </div>
-        <span class="timer-sep">:</span>
-        <div class="timer-unit">
-          <span class="timer-digit" id="timer-sec">59</span>
-          <span class="timer-unit-label">Seg</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="offer-box reveal">
-      <div class="offer-badge">🔥 MÁS VENDIDO · Acceso inmediato</div>
-      <p class="offer-product-name">El secreto de tus tatarabuelos que <em style="font-style:italic; color:var(--dourado);">previene, cura y da alivio</em></p>
-      <p class="offer-subtitle">+200 Remedios Naturales Ancestrales + 3 Regalos</p>
-      <img
-        src="https://res.cloudinary.com/def9lnal7/image/upload/v1781577851/mockup_pitch_mbetaf.webp"
-        alt="Lo Que Tu Abuela Sabía Curar · +200 Remedios Naturales"
-        width="480" height="320"
-        loading="lazy" decoding="async"
-        style="display:block;width:100%;max-width:380px;height:auto;margin:16px auto 20px;border-radius:10px;"
-      >
-      <div class="offer-price-old">$47 USD</div>
-      <div class="offer-price"><sup>$</sup>9<sub> USD</sub></div>
-      <p class="offer-currency">💳 Paga en tu moneda local</p>
-
-      <ul class="offer-list">
-        <li>+200 Remedios Naturales Ancestrales, organizados por condición</li>
-        <li>REGALO 1 · Guía del Sueño Profundo</li>
-        <li>REGALO 2 · Plan de Alivio para Espalda y Músculos</li>
-        <li>REGALO 3 · Recetario de Cocina Saludable</li>
-        <li>Acceso inmediato por email</li>
-        <li>Disponible en celular, tablet y computadora</li>
-        <li>Garantía de satisfacción 7 días</li>
-      </ul>
-
-      <a href="https://pay.hotmart.com/P106351091P" class="offer-cta" target="_blank" rel="noopener">
-        Quiero el secreto de los tatarabuelos + regalos →
-      </a>
-
-      <div class="offer-trust">
-        <span>Pago 100% seguro</span>
-        <span>Garantía 7 días</span>
-        <span>Acceso inmediato</span>
-      </div>
-
-      <div class="payment-methods">
-        <span class="payment-pill">Visa</span>
-        <span class="payment-pill">MasterCard</span>
-        <span class="payment-pill">PayPal</span>
-        <span class="payment-pill">OXXO</span>
-        <span class="payment-pill">PIX</span>
-        <span class="payment-pill">Mercado Pago</span>
-        <span class="payment-pill">SPEI</span>
-        <span class="payment-pill">Google Pay</span>
-      </div>
-
-      <div class="flags">
-        🇲🇽🇨🇴🇦🇷🇨🇱🇵🇪🇻🇪🇪🇨🇧🇴🇺🇾🇵🇾🇬🇹🇩🇴🇭🇳🇸🇻🇳🇮🇨🇷🇵🇦🇪🇸
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════ GUARANTEE ═══════════════════ -->
-<section class="section section-light">
-  <div class="container">
-    <div class="guarantee-box reveal">
-      <img
-        src="https://res.cloudinary.com/def9lnal7/image/upload/v1781577850/garantia_jucikg.webp"
-        alt="Sello de Garantía 7 Días · 100% Satisfacción"
-        width="160" height="160"
-        loading="lazy" decoding="async"
-        style="display:block;width:120px;height:120px;object-fit:contain;margin:0 auto 20px;"
-      >
-      <h3>Garantía Total de 7 Días</h3>
-      <p>Si en los próximos 7 días no quedas 100% satisfecho con el contenido, te devolvemos tu dinero completo. Sin preguntas, sin formularios complicados, sin excusas. Tu inversión está protegida.</p>
     </div>
   </div>
 </section>
@@ -1399,10 +1645,30 @@
   </div>
 </section>
 
+<!-- ═══════════════════ P.S. ═══════════════════ -->
+<section class="section section-light" style="padding:40px 24px;">
+  <div class="container">
+    <div class="reveal" style="max-width:620px; margin:0 auto; text-align:center;">
+      <p style="font-size:15px; line-height:1.75; color:var(--texto-suave);">
+        <strong style="color:var(--verde);">P.S.</strong> Las abuelas no tenían farmacia en cada esquina. Tenían conocimiento.
+        Ese conocimiento no se compró ni se patentó. Se transmitió. Hasta que dejó de transmitirse.
+        Por $9, hoy puedes recuperarlo todo: <strong style="color:var(--verde);">+200 preparados organizados por problema</strong>,
+        con ingredientes de tu cocina, listos para usar esta noche.
+        Porque el problema que tienes hoy no debería seguir ahí mañana.
+        Y si en 30 días no es exactamente lo que esperabas, te devolvemos cada centavo.
+      </p>
+      <div style="margin-top:24px;">
+        <a href="#comprar" class="btn-primary" style="display:inline-block;">Empiezo hoy por $9</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════════════ FOOTER ═══════════════════ -->
 <footer class="footer">
   <p>© 2026 Lo Que Tu Abuela Sabía Curar · Todos los derechos reservados</p>
   <p style="margin-top:6px;">Este producto es de carácter informativo y no reemplaza el consejo médico profesional.</p>
+  <p style="margin-top:4px; font-size:11px; color:rgba(255,255,255,0.25);">* Las referencias del compendio son informativas y de carácter tradicional. Ante cualquier condición de salud, consulta a tu médico.</p>
 </footer>
 
 <script>
@@ -1463,18 +1729,35 @@ revealEls.forEach(el => observer.observe(el));
 
 // ─── TIMER ───
 (function() {
-  let total = 14 * 60 + 59;
+  const DURATION = 14 * 60 + 59;
+  const KEY = 'abuela_timer_end';
   const minEl = document.getElementById('timer-min');
   const secEl = document.getElementById('timer-sec');
+  const timerWrap = document.querySelector('.timer-wrap');
+
+  // Set expiry on first visit, reuse on reload
+  let endTime = parseInt(sessionStorage.getItem(KEY) || '0', 10);
+  if (!endTime || endTime < Date.now()) {
+    endTime = Date.now() + DURATION * 1000;
+    sessionStorage.setItem(KEY, endTime);
+  }
+
   function tick() {
-    if (total <= 0) { total = 14 * 60 + 59; return; }
-    total--;
-    const m = Math.floor(total / 60);
-    const s = total % 60;
+    const remaining = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
+    const m = Math.floor(remaining / 60);
+    const s = remaining % 60;
     if (minEl) minEl.textContent = String(m).padStart(2, '0');
     if (secEl) secEl.textContent = String(s).padStart(2, '0');
+    if (remaining <= 0) {
+      clearInterval(interval);
+      // When expired: show "Oferta expirada" message instead of 00:00 loop
+      if (timerWrap) {
+        timerWrap.innerHTML = '<p style="color:var(--vermelho); font-size:13px; font-weight:700; text-align:center; text-transform:uppercase; letter-spacing:0.06em;">Esta oferta ha expirado. Recarga la página para ver si aún está disponible</p>';
+      }
+    }
   }
-  setInterval(tick, 1000);
+  tick();
+  const interval = setInterval(tick, 1000);
 })();
 
 // ─── FAKE VIEWER COUNT ───
@@ -1521,7 +1804,7 @@ document.querySelectorAll('.faq-question').forEach(btn => {
     <button class="sp-close" aria-label="Cerrar">×</button>
     <div class="sp-content">
       <div class="sp-name" id="sp-name"></div>
-      <div class="sp-action">acaba de adquirir <strong>el compendio</strong> 🌿</div>
+      <div class="sp-action">acaba de adquirir <strong>el compendio</strong></div>
       <div class="sp-time" id="sp-time"></div>
     </div>
   `;
